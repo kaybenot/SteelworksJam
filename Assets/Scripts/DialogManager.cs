@@ -70,7 +70,7 @@ public class DialogManager : MonoBehaviour
             return;
         }
 
-        CommandProcessor.SendCommand("Canvas.Show");
+        CommandProcessor.SendCommand("Canvas.ShowDialog");
         SetDialog(info.dialogs[0]);
         currentType = typeId;
         info.played = 1;
@@ -98,7 +98,7 @@ public class DialogManager : MonoBehaviour
                 Debug.Log("Stopped playing");
                 currentType = -1;
                 // Hide Canvas
-                CommandProcessor.SendCommand("Canvas.Hide");
+                CommandProcessor.SendCommand("Canvas.HideDialog");
             }
             else
             {
