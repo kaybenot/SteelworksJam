@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour, IDamagable
+public class Player : MonoBehaviour, IDamagable, ICommandListener
 {
     public GameObject Head;
     public Transform HeadMountPoint;
@@ -13,6 +13,9 @@ public class Player : MonoBehaviour, IDamagable
     public int StartingHealth = 50;
     public PlayerShootingManager ShootingManager;
     public float maxInteractDistance = 1.0f;
+
+    public string ListenerName { get; set; } = "Player";
+
     public bool IsGrounded => Vector3.Dot(collisionNormal, Vector3.up) > 0.7f;
 
     private HidingPlace hidingPlace;
@@ -21,9 +24,12 @@ public class Player : MonoBehaviour, IDamagable
     private Vector3 collisionNormal = Vector3.zero;
     private Vector3 velocity = Vector3.zero;
     private int currentHealth;
+    private bool canShoot = false;
+    private bool canMove = true;
 
     private void Awake()
     {
+        CommandProcessor.RegisterListener(this);
         currentHealth = StartingHealth;
         rb = GetComponent<Rigidbody>();
         if (rb == null)
@@ -32,7 +38,26 @@ public class Player : MonoBehaviour, IDamagable
         if (Head == null)
             Debug.LogAssertion("There is no assigned Head to Player script!");
     }
-    
+
+    public void ProcessCommand(string command, List<string> parameters)
+    {
+        switch (command)
+        {
+            case "EnableGun":
+                canShoot = true;
+                break;
+            case "DisableGun":
+                canShoot = false;
+                break;
+            case "PushPlayer":
+                PushPlayer();
+                break;
+            default:
+                Debug.LogWarning($"Unimplemented command: {command}");
+                break;
+        }
+    }
+
     private void OnCollisionStay(Collision collision)
     {
         EvaluateCollision(collision);
@@ -48,9 +73,35 @@ public class Player : MonoBehaviour, IDamagable
         EvaluateMovement();
     }
 
+    private void Update()
+    {
+        RaycastHit hit;
+        LayerMask mask = LayerMask.GetMask("Interactable");
+        if (Physics.Raycast(Head.transform.position, Head.transform.forward, out hit, maxInteractDistance, mask))
+        {
+            // Get Type
+            // Set Hint Type
+
+            // Show Hint
+            CommandProcessor.SendCommand("Canvas.ShowHint");
+        }
+        else
+        {
+            CommandProcessor.SendCommand("Canvas.HideHint");
+        }
+    }
+
     public void Move(Vector2 direction)
     {
         velocity = new Vector3(direction.x * MovementSpeed, 0f, direction.y * MovementSpeed);
+    }
+
+    public void PushPlayer()
+    {
+        var pushVelocity = -Camera.main.transform.forward;
+        pushVelocity.y = 0.75f;
+        rb.velocity += pushVelocity * 5f;
+        StartCoroutine(BlockMovementForTime(0.8f));
     }
 
     public void Turn(Vector2 delta)
@@ -92,13 +143,16 @@ public class Player : MonoBehaviour, IDamagable
 
     public void Shoot()
     {
+        if (!canShoot)
+            return;
+
         Debug.Log("Used gun");
         ShootingManager.ShootGuns();
     }
 
     public void Jump()
     {
-        if (!IsGrounded)
+        if (!IsGrounded || !canMove)
             return;
         
         var jumpForce = Mathf.Sqrt(-2f * Physics.gravity.y * JumpHeight);
@@ -121,6 +175,9 @@ public class Player : MonoBehaviour, IDamagable
 
     private void EvaluateMovement()
     {
+        if (!canMove)
+            return;
+
         var forward = Head.transform.forward;
         forward.y = 0f;
         forward.Normalize();
@@ -145,5 +202,12 @@ public class Player : MonoBehaviour, IDamagable
     {
         Debug.Log("You died!");
         CommandProcessor.SendCommand("Canvas.DeathScreen"); //TODO: Add controller
+    }
+
+    public IEnumerator BlockMovementForTime(float time)
+    {
+        canMove = false;
+        yield return new WaitForSeconds(time);
+        canMove = true;
     }
 }

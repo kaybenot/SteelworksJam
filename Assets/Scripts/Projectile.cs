@@ -10,6 +10,7 @@ public class Projectile : MonoBehaviour, IProjectile
     [SerializeField] private float timeToLive = 5f;
 
     private bool startMoving = false;
+    public float Speed { get => projectileSpeed; set => projectileSpeed = value; }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -17,6 +18,10 @@ public class Projectile : MonoBehaviour, IProjectile
         {
             Debug.Log($"Hit {other.gameObject.name} for {projectileDamage} damage!");
             Hit(damagable);
+        }
+        else if(other.tag == "Obstacle")
+        {
+            DestroyProjectile();
         }
     }
 
@@ -28,8 +33,13 @@ public class Projectile : MonoBehaviour, IProjectile
         }
     }
 
-    public void Shoot(Vector3 shotDirection)
+    public void Shoot(Vector3 shotDirection, float customSpeed = -1)
     {
+        if (customSpeed != -1)
+        {
+            projectileSpeed = customSpeed;
+        }
+
         this.transform.forward = shotDirection;
         startMoving = true;
         Invoke("DestroyProjectile", timeToLive);
