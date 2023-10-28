@@ -13,6 +13,8 @@ public class CanvasManager : MonoBehaviour, ICommandListener
     public Animator vignetteAnimator;
     public Animator bloodAnimator;
     public Animator badSightAnimator;
+    public Animator weaponAnimator;
+    public Animator weaponShootingAnimator;
 
     public Image playerHealthBarFill;
     public Image enemyHealthBarFill;
@@ -48,6 +50,11 @@ public class CanvasManager : MonoBehaviour, ICommandListener
 
             case "ShowBadSight": badSightAnimator.SetTrigger("Show"); break;
             case "HideBadSight": badSightAnimator.SetTrigger("Hide"); break;
+
+            case "ShowWeapons": weaponAnimator.SetTrigger("Show"); break;
+            case "HideWeapons": weaponAnimator.SetTrigger("Hide"); break;
+
+            case "ShootWeapons": weaponShootingAnimator.SetTrigger("Shoot"); break;
 
             default:
                 Debug.LogWarning($"Unimplemented command: {command}");

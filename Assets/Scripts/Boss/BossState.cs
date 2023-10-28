@@ -18,12 +18,14 @@ public class BossState : MonoBehaviour, ICommandListener
         {
             EndFight();
             CommandProcessor.SendCommand("Player.DisableGun");
+            CommandProcessor.SendCommand("Canvas.HideWeapons");
         }
         else if (IsInteger(command, out int index))
         {
             Debug.Log($"Spawned boss with index {index}");
             bossSpawnManager.SpawnBoss(index);
             CommandProcessor.SendCommand("Player.EnableGun");
+            CommandProcessor.SendCommand("Canvas.ShowWeapons");
             CommandProcessor.SendCommand("Player.PushPlayer");
         }
     }
