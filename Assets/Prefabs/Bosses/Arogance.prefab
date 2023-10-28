@@ -82,6 +82,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 100
+  shotManager: {fileID: 0}
+  spriteRenderer: {fileID: 6359645246393295654}
+  attackSprite: {fileID: 0}
+  deadSprite: {fileID: 0}
 --- !u!114 &3261573343349354026
 MonoBehaviour:
   m_ObjectHideFlags: 0

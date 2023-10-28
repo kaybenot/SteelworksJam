@@ -84,6 +84,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 100
+  shotManager: {fileID: 3261573343349354026}
+  spriteRenderer: {fileID: 6359645246393295654}
+  attackSprite: {fileID: 21300000, guid: 7da2a80c69bfe734a9133dd22696519e, type: 3}
+  deadSprite: {fileID: 21300000, guid: 31f578a5ac2f62c42969515bb91d2444, type: 3}
 --- !u!114 &3261573343349354026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,7 +153,7 @@ MonoBehaviour:
   shotAmount: 12
   targetPlayerInSeconds: 1
   aimBetweenShots: 0.5
-  newSpeed: 155
+  newSpeed: 5
 --- !u!54 &2529313146529110116
 Rigidbody:
   m_ObjectHideFlags: 0
