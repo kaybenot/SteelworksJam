@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CanvasManager : MonoBehaviour, ICommandListener
 {
@@ -13,6 +14,8 @@ public class CanvasManager : MonoBehaviour, ICommandListener
     public Animator bloodAnimator;
     public Animator badSightAnimator;
 
+    public Image playerHealthBarFill;
+    public Image enemyHealthBarFill;
 
     void Awake()
     {
@@ -28,9 +31,11 @@ public class CanvasManager : MonoBehaviour, ICommandListener
 
             case "ShowEnemyHealth": enemyHealthAnimator.SetTrigger("Show"); break;
             case "HideEnemyHealth": enemyHealthAnimator.SetTrigger("Hide"); break;
+            case "SetEnemyHealth": { enemyHealthBarFill.fillAmount = float.Parse(parameters[0]); break; }
 
             case "ShowPlayerHealth": playerHealthAnimator.SetTrigger("Show"); break;
             case "HidePlayerHealth": playerHealthAnimator.SetTrigger("Hide"); break;
+            case "SetPlayerHealth": { playerHealthBarFill.fillAmount = float.Parse(parameters[0]); break; }
 
             case "ShowHint": hintAnimator.SetTrigger("Show"); break;
             case "HideHint": hintAnimator.SetTrigger("Hide"); break;

@@ -123,6 +123,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!95 &187546842 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2198082600684850573, guid: dd06d83b4b5bf2f4bb0a256b60585704,
+    type: 3}
+  m_PrefabInstance: {fileID: 333555911}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &233505930
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,6 +234,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 233505930}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &261713234 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1683730200340514305, guid: dd06d83b4b5bf2f4bb0a256b60585704,
+    type: 3}
+  m_PrefabInstance: {fileID: 333555911}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &333555911
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -236,6 +254,46 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 582176578059169969, guid: dd06d83b4b5bf2f4bb0a256b60585704,
+        type: 3}
+      propertyPath: badSightAnimator
+      value: 
+      objectReference: {fileID: 187546842}
+    - target: {fileID: 582176578059169969, guid: dd06d83b4b5bf2f4bb0a256b60585704,
+        type: 3}
+      propertyPath: enemyHealthBarFill
+      value: 
+      objectReference: {fileID: 261713234}
+    - target: {fileID: 582176578059169969, guid: dd06d83b4b5bf2f4bb0a256b60585704,
+        type: 3}
+      propertyPath: playerHealthBarFill
+      value: 
+      objectReference: {fileID: 742395580}
+    - target: {fileID: 1683730200340514305, guid: dd06d83b4b5bf2f4bb0a256b60585704,
+        type: 3}
+      propertyPath: m_Type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1683730200340514305, guid: dd06d83b4b5bf2f4bb0a256b60585704,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1683730200340514305, guid: dd06d83b4b5bf2f4bb0a256b60585704,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 0.322
+      objectReference: {fileID: 0}
+    - target: {fileID: 1683730200340514305, guid: dd06d83b4b5bf2f4bb0a256b60585704,
+        type: 3}
+      propertyPath: m_FillMethod
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655643600532425146, guid: dd06d83b4b5bf2f4bb0a256b60585704,
+        type: 3}
+      propertyPath: m_Alpha
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7080695944247138596, guid: dd06d83b4b5bf2f4bb0a256b60585704,
         type: 3}
       propertyPath: m_Pivot.x
@@ -342,7 +400,8 @@ PrefabInstance:
       value: Canvas
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4785626554403517757, guid: dd06d83b4b5bf2f4bb0a256b60585704, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd06d83b4b5bf2f4bb0a256b60585704, type: 3}
@@ -451,6 +510,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410270349}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &742395580 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6626011192505155978, guid: dd06d83b4b5bf2f4bb0a256b60585704,
+    type: 3}
+  m_PrefabInstance: {fileID: 333555911}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1207017575
 GameObject:
   m_ObjectHideFlags: 0
