@@ -14,8 +14,8 @@ public class CanvasManager : MonoBehaviour, ICommandListener
     public Animator bloodAnimator;
     public Animator badSightAnimator;
 
-    public Image playerHealthBarFill;
     public Image enemyHealthBarFill;
+    public GameObject playerHeartsParent;
 
     void Awake()
     {
@@ -35,7 +35,7 @@ public class CanvasManager : MonoBehaviour, ICommandListener
 
             case "ShowPlayerHealth": playerHealthAnimator.SetTrigger("Show"); break;
             case "HidePlayerHealth": playerHealthAnimator.SetTrigger("Hide"); break;
-            case "SetPlayerHealth": { playerHealthBarFill.fillAmount = float.Parse(parameters[0]); break; }
+            case "SetPlayerHearts": { SetPlayerHearts(int.Parse(parameters[0])); break; }
 
             case "ShowHint": hintAnimator.SetTrigger("Show"); break;
             case "HideHint": hintAnimator.SetTrigger("Hide"); break;
@@ -54,4 +54,36 @@ public class CanvasManager : MonoBehaviour, ICommandListener
                 break;
         }
     }
+
+    private void SetPlayerHearts(int count)
+    {
+        const int maxCount = 5;
+        if (count < 0 || count > maxCount) {
+            Debug.LogWarning($"Illegal player hearts count: {count}");
+        }
+
+        for (int i = 0; i < playerHeartsParent.transform.childCount; ++i) {
+            var child = playerHeartsParent.transform.GetChild(i).gameObject;
+            if (child == null) break;
+
+            if(i < count)
+                child.SetActive(true);
+            else
+                child.SetActive(false);   
+        }
+    }
+
+
+    [ContextMenu("Set Hearts 0")]
+    void SetHearts0() { SetPlayerHearts(0); }
+    [ContextMenu("Set Hearts 1")]
+    void SetHearts1() { SetPlayerHearts(1); }
+    [ContextMenu("Set Hearts 2")]
+    void SetHearts2() { SetPlayerHearts(2); }
+    [ContextMenu("Set Hearts 3")]
+    void SetHearts3() { SetPlayerHearts(3); }
+    [ContextMenu("Set Hearts 4")]
+    void SetHearts4() { SetPlayerHearts(4); }
+    [ContextMenu("Set Hearts 5")]
+    void SetHearts5() { SetPlayerHearts(5); }
 }
