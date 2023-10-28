@@ -16,7 +16,7 @@ public class Boss : MonoBehaviour, IDamagable
     public void Damage(int damage)
     {
         currentHealth -= damage;
-        if (currentHealth < 0)
+        if (currentHealth <= 0)
         {
             OnDeath();
         }
@@ -24,6 +24,7 @@ public class Boss : MonoBehaviour, IDamagable
 
     private void OnDeath()
     {
-
+        Debug.Log("Boss killed");
+        CommandProcessor.SendCommand("Boss.End");
     }
 }

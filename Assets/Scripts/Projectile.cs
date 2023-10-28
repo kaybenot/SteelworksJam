@@ -18,6 +18,10 @@ public class Projectile : MonoBehaviour, IProjectile
             Debug.Log($"Hit {other.gameObject.name} for {projectileDamage} damage!");
             Hit(damagable);
         }
+        else if(other.tag == "Obstacle")
+        {
+            DestroyProjectile();
+        }
     }
 
     private void Update()
