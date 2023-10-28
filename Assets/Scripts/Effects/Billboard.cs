@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Billboard : MonoBehaviour
 {
+    public float xAngle = 90f;
+    public bool useXAngle = true;
+
     private Transform player;
     
     private void Start()
@@ -18,7 +21,7 @@ public class Billboard : MonoBehaviour
     {
         transform.LookAt(player);
         var angles = transform.eulerAngles;
-        angles.x = 90f;
+        if (useXAngle) angles.x = xAngle;
         transform.eulerAngles = angles;
     }
 }
