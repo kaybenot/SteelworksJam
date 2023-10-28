@@ -25,6 +25,7 @@ public class Player : MonoBehaviour, IDamagable, ICommandListener
     private Vector3 velocity = Vector3.zero;
     private int currentHealth;
     private bool canShoot = false;
+    private bool canMove = true;
 
     private void Awake()
     {
@@ -47,6 +48,9 @@ public class Player : MonoBehaviour, IDamagable, ICommandListener
                 break;
             case "DisableGun":
                 canShoot = false;
+                break;
+            case "PushPlayer":
+                PushPlayer();
                 break;
             default:
                 Debug.LogWarning($"Unimplemented command: {command}");
@@ -72,6 +76,14 @@ public class Player : MonoBehaviour, IDamagable, ICommandListener
     public void Move(Vector2 direction)
     {
         velocity = new Vector3(direction.x * MovementSpeed, 0f, direction.y * MovementSpeed);
+    }
+
+    public void PushPlayer()
+    {
+        var pushVelocity = -Camera.main.transform.forward;
+        pushVelocity.y = 0.75f;
+        rb.velocity += pushVelocity * 5f;
+        StartCoroutine(BlockMovementForTime(0.8f));
     }
 
     public void Turn(Vector2 delta)
@@ -122,7 +134,7 @@ public class Player : MonoBehaviour, IDamagable, ICommandListener
 
     public void Jump()
     {
-        if (!IsGrounded)
+        if (!IsGrounded || !canMove)
             return;
         
         var jumpForce = Mathf.Sqrt(-2f * Physics.gravity.y * JumpHeight);
@@ -145,6 +157,9 @@ public class Player : MonoBehaviour, IDamagable, ICommandListener
 
     private void EvaluateMovement()
     {
+        if (!canMove)
+            return;
+
         var forward = Head.transform.forward;
         forward.y = 0f;
         forward.Normalize();
@@ -169,5 +184,12 @@ public class Player : MonoBehaviour, IDamagable, ICommandListener
     {
         Debug.Log("You died!");
         CommandProcessor.SendCommand("Canvas.DeathScreen"); //TODO: Add controller
+    }
+
+    public IEnumerator BlockMovementForTime(float time)
+    {
+        canMove = false;
+        yield return new WaitForSeconds(time);
+        canMove = true;
     }
 }

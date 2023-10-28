@@ -17,12 +17,14 @@ public class BossState : MonoBehaviour, ICommandListener
         if (command == "End")
         {
             EndFight();
+            CommandProcessor.SendCommand("Player.DisableGun");
         }
-
-        if (IsInteger(command, out int index))
+        else if (IsInteger(command, out int index))
         {
             Debug.Log($"Spawned boss with index {index}");
             bossSpawnManager.SpawnBoss(index);
+            CommandProcessor.SendCommand("Player.EnableGun");
+            CommandProcessor.SendCommand("Player.PushPlayer");
         }
     }
 

@@ -16,7 +16,7 @@ public class Boss : MonoBehaviour, IDamagable
     public void Damage(int damage)
     {
         currentHealth -= damage;
-        if (currentHealth < 0)
+        if (currentHealth <= 0)
         {
             OnDeath();
         }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 555075837606813816}
   - component: {fileID: 8670149651573909424}
   - component: {fileID: 2376146642346690081}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: FireProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ SphereCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 4131237273070527508}
   - component: {fileID: 1288252104916872892}
   - component: {fileID: 6282488840318919909}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,7 +253,7 @@ GameObject:
   - component: {fileID: 1099194679702583349}
   - component: {fileID: 5817695158757009904}
   - component: {fileID: 1684134628670955779}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -369,7 +369,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5527742461984481973}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}

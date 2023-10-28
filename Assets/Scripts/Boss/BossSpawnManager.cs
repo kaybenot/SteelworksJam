@@ -25,6 +25,7 @@ public class BossSpawnManager : MonoBehaviour
         currentBoss = Instantiate(currentBossData.bossPrefab, currentBossData.ghostPoint.transform);
         currentBoss.transform.localPosition = Vector3.zero;
         currentBoss.transform.localRotation = Quaternion.identity;
+        currentBoss.transform.SetParent(this.transform);
         currentBoss.Init();
     }
 

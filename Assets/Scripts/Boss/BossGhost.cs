@@ -10,11 +10,6 @@ public class BossGhost : MonoBehaviour, IInteractable
     {
         string command = "Boss." + bossGhostIndex;
         CommandProcessor.SendCommand(command);
-    }
-
-    [ContextMenu("Test")]
-    public void Test()
-    {
-        Use(null);
+        this.gameObject.SetActive(false);
     }
 }

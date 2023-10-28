@@ -81,6 +81,8 @@ MonoBehaviour:
   LookSensitivity: 0.1
   StartingHealth: 50
   ShootingManager: {fileID: 6992159876934121597}
+  maxInteractDistance: 3
+  strenght: 1
 --- !u!114 &4103424943334857891
 MonoBehaviour:
   m_ObjectHideFlags: 0
