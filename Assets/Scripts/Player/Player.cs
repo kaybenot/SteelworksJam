@@ -73,6 +73,24 @@ public class Player : MonoBehaviour, IDamagable, ICommandListener
         EvaluateMovement();
     }
 
+    private void Update()
+    {
+        RaycastHit hit;
+        LayerMask mask = LayerMask.GetMask("Interactable");
+        if (Physics.Raycast(Head.transform.position, Head.transform.forward, out hit, maxInteractDistance, mask))
+        {
+            // Get Type
+            // Set Hint Type
+
+            // Show Hint
+            CommandProcessor.SendCommand("Canvas.ShowHint");
+        }
+        else
+        {
+            CommandProcessor.SendCommand("Canvas.HideHint");
+        }
+    }
+
     public void Move(Vector2 direction)
     {
         velocity = new Vector3(direction.x * MovementSpeed, 0f, direction.y * MovementSpeed);

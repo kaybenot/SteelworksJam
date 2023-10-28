@@ -35,7 +35,8 @@ public static class CommandProcessor
                 return true;
             }
         }
-        
+
+        Debug.LogWarning($"{listenerName} is not a registered listener!");
         return false;
     }
 
