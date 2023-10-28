@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossShotManager : MonoBehaviour
+public interface IProjectile
 {
-    ////[SerializeField] private ;;
+    void Shot();
+    void Hit(IDamagable damagable);
 }
