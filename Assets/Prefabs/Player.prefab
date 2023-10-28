@@ -81,6 +81,8 @@ MonoBehaviour:
   LookSensitivity: 0.1
   StartingHealth: 50
   ShootingManager: {fileID: 6992159876934121597}
+  maxInteractDistance: 3
+  strenght: 1
 --- !u!114 &4103424943334857891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,6 +283,8 @@ MonoBehaviour:
     type: 3}
   leftBarrelPoint: {fileID: 2780337634569957503}
   rightBarrelPoint: {fileID: 3295251390376601807}
+  fireRate: 5
+  addDirection: {x: 0, y: 0.05, z: 0}
 --- !u!1 &2176229358794171541
 GameObject:
   m_ObjectHideFlags: 0
