@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface IProjectile
 {
-    void Shoot(Vector3 shotDirection);
+    void Shoot(Vector3 shotDirection, float customSpeed = -1);
     void Hit(IDamagable damagable);
 }
