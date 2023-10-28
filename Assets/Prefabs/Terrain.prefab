@@ -232,11 +232,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hut
       objectReference: {fileID: 0}
-    - target: {fileID: 8503027046401960451, guid: 652277c72a60f7d4395e42f945f3e3bf,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
