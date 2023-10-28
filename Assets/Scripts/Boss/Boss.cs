@@ -24,6 +24,7 @@ public class Boss : MonoBehaviour, IDamagable
 
     private void OnDeath()
     {
-
+        Debug.Log("Boss killed");
+        CommandProcessor.SendCommand("Boss.End");
     }
 }

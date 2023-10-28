@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour, IDamagable
+public class Player : MonoBehaviour, IDamagable, ICommandListener
 {
     public GameObject Head;
     public Transform HeadMountPoint;
@@ -13,15 +13,19 @@ public class Player : MonoBehaviour, IDamagable
     public int StartingHealth = 50;
     public PlayerShootingManager ShootingManager;
 
+    public string ListenerName { get; set; } = "Player";
+
     public bool IsGrounded => Vector3.Dot(collisionNormal, Vector3.up) > 0.7f;
 
     private Rigidbody rb;
     private Vector3 collisionNormal = Vector3.zero;
     private Vector3 velocity = Vector3.zero;
     private int currentHealth;
+    private bool canShoot = false;
 
     private void Awake()
     {
+        CommandProcessor.RegisterListener(this);
         currentHealth = StartingHealth;
         rb = GetComponent<Rigidbody>();
         if (rb == null)
@@ -30,7 +34,23 @@ public class Player : MonoBehaviour, IDamagable
         if (Head == null)
             Debug.LogAssertion("There is no assigned Head to Player script!");
     }
-    
+
+    public void ProcessCommand(string command, List<string> parameters)
+    {
+        switch (command)
+        {
+            case "EnableGun":
+                canShoot = true;
+                break;
+            case "DisableGun":
+                canShoot = false;
+                break;
+            default:
+                Debug.LogWarning($"Unimplemented command: {command}");
+                break;
+        }
+    }
+
     private void OnCollisionStay(Collision collision)
     {
         EvaluateCollision(collision);
@@ -76,6 +96,9 @@ public class Player : MonoBehaviour, IDamagable
 
     public void Shoot()
     {
+        if (!canShoot)
+            return;
+
         Debug.Log("Used gun");
         ShootingManager.ShootGuns();
     }

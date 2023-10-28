@@ -281,6 +281,8 @@ MonoBehaviour:
     type: 3}
   leftBarrelPoint: {fileID: 2780337634569957503}
   rightBarrelPoint: {fileID: 3295251390376601807}
+  fireRate: 5
+  addDirection: {x: 0, y: 0.05, z: 0}
 --- !u!1 &2176229358794171541
 GameObject:
   m_ObjectHideFlags: 0
