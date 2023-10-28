@@ -8,12 +8,16 @@ using UnityEngine;
 public enum MODE
 {
     FOLLOW,
-    HIDE
+    HIDE,
+    NEWGAME
 }
 
 public class HeadFollow : MonoBehaviour, ICommandListener
 {
-    public Player Player;
+    [SerializeField]
+    private Player Player;
+    [SerializeField]
+    private Transform cutSceneTransform;
     public MODE mode = MODE.FOLLOW;
 
     public float transitionSpeed = 1.0f;
@@ -30,7 +34,11 @@ public class HeadFollow : MonoBehaviour, ICommandListener
 
     private void Update()
     {
-        if(mode == MODE.FOLLOW)
+        if (mode == MODE.NEWGAME)
+        {
+            transform.position = Vector3.Lerp(transform.position, cutSceneTransform.position, transitionSpeed * Time.deltaTime);
+        }
+        else if (mode == MODE.FOLLOW)
         {
             transform.position = Vector3.MoveTowards(transform.position, Player.HeadMountPoint.transform.position,
                 Player.MovementSpeed * Time.deltaTime);
@@ -53,6 +61,11 @@ public class HeadFollow : MonoBehaviour, ICommandListener
     {
         mode = MODE.FOLLOW;
     }
+    [ContextMenu("NewGame")]
+    void NewGame()
+    {
+        mode = MODE.FOLLOW;
+    }
 
     public void ProcessCommand(string command, List<string> parameters)
     {
@@ -66,6 +79,9 @@ public class HeadFollow : MonoBehaviour, ICommandListener
             case "Follow":
                 mode = MODE.FOLLOW;
                 break;
+            case "NewGame":
+                mode = MODE.NEWGAME;
+            break;
             default: 
                 Debug.LogWarning($"Unimplemented command: {command}");
                 break;

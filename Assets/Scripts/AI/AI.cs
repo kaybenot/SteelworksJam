@@ -5,13 +5,11 @@ using UnityEngine.AI;
 public class AI : MonoBehaviour
 {
     NavMeshAgent agent;
-    Animator anim;
     [SerializeField] private Transform player;
     AIState currentState;
     void Start()
     {
         agent = this.GetComponent<NavMeshAgent>();
-        anim = this.GetComponent<Animator>();
         if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player").transform;

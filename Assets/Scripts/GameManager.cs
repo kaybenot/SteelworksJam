@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     void Start()
     {
+        RenderSettings.fogDensity = 0.08f;
         // Temporarily
         CursorManager.HideCursor();
     }
