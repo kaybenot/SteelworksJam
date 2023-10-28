@@ -9,6 +9,6 @@ public class BossState : MonoBehaviour
     [ContextMenu("Star boss fight")]
     public void StartBossFight()
     {
-        bossSpawnManager.SpawnBoss();
+        //bossSpawnManager.SpawnBoss();
     }
 }

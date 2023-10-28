@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class BossSpawnManager : MonoBehaviour
 {
-    [SerializeField] private Boss bossPrefab;
-    [SerializeField] private Transform bossSpawnPoint;
+    [SerializeField] private List<BossData> bossDatas;
 
-    public void SpawnBoss()
+    public void SpawnBoss(int bossIndex)
     {
-        Instantiate(bossPrefab, bossSpawnPoint);
-        bossPrefab.transform.position = Vector3.zero;
-        bossPrefab.transform.rotation = Quaternion.identity;
-        bossPrefab.Init();
+        if (bossIndex < 0 || bossIndex >= bossDatas.Count)
+        {
+            Debug.LogError("Boss index is out of range!");
+        }
+
+        var bossData = bossDatas[bossIndex];
+
+        var boss = Instantiate(bossData.bossPrefab, bossData.spawnPoint);
+        boss.transform.position = Vector3.zero;
+        boss.transform.rotation = Quaternion.identity;
+        boss.Init();
     }
 }
