@@ -3,22 +3,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IDamagable
 {
     public GameObject Head;
     public Transform HeadMountPoint;
     public float JumpHeight = 0.5f;
     public float MovementSpeed = 1f;
     public float LookSensitivity = 0.1f;
+    public int StartingHealth = 50;
+    public PlayerShootingManager ShootingManager;
 
     public bool IsGrounded => Vector3.Dot(collisionNormal, Vector3.up) > 0.7f;
 
     private Rigidbody rb;
     private Vector3 collisionNormal = Vector3.zero;
     private Vector3 velocity = Vector3.zero;
+    private int currentHealth;
 
     private void Awake()
     {
+        currentHealth = StartingHealth;
         rb = GetComponent<Rigidbody>();
         if (rb == null)
             Debug.LogAssertion("Could not locate Rigidbody on Player!");
@@ -70,6 +74,12 @@ public class Player : MonoBehaviour
         // TODO: Interacting
     }
 
+    public void Shoot()
+    {
+        Debug.Log("Used gun");
+        ShootingManager.ShootGuns();
+    }
+
     public void Jump()
     {
         if (!IsGrounded)
@@ -104,5 +114,20 @@ public class Player : MonoBehaviour
         right.Normalize();
 
         rb.velocity = forward * velocity.z + right * velocity.x + rb.velocity.y * Vector3.up;
+    }
+
+    public void Damage(int damage)
+    {
+        currentHealth -= damage;
+        if (currentHealth <= 0)
+        {
+            OnDeath();
+        }
+    }
+
+    public void OnDeath()
+    {
+        Debug.Log("You died!");
+        CommandProcessor.SendCommand("Canvas.DeathScreen"); //TODO: Add controller
     }
 }
