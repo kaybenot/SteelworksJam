@@ -5,7 +5,7 @@ using UnityEngine;
 
 public static class CommandProcessor
 {
-    private static List<ICommandListener> listeners;
+    private static List<ICommandListener> listeners = new ();
     
     public static void RegisterListener(ICommandListener listener)
     {
