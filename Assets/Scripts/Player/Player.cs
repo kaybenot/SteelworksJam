@@ -12,8 +12,10 @@ public class Player : MonoBehaviour, IDamagable
     public float LookSensitivity = 0.1f;
     public int StartingHealth = 50;
     public PlayerShootingManager ShootingManager;
-
+    public float maxInteractDistance = 1.0f;
     public bool IsGrounded => Vector3.Dot(collisionNormal, Vector3.up) > 0.7f;
+
+    private HidingPlace hidingPlace;
 
     private Rigidbody rb;
     private Vector3 collisionNormal = Vector3.zero;
@@ -71,7 +73,21 @@ public class Player : MonoBehaviour, IDamagable
     public void Interact()
     {
         Debug.Log("Tried interacting");
-        // TODO: Interacting
+
+        if(hidingPlace != null)
+        {
+            hidingPlace.Unhide();
+        }
+
+        RaycastHit hit;
+        LayerMask mask = LayerMask.GetMask("Interactable");
+        if (Physics.Raycast(Head.transform.position, Head.transform.forward, out hit, maxInteractDistance, mask))
+        {
+            hit.collider.gameObject.GetComponent<IInteractable>().Use(this);
+
+            hidingPlace = hit.collider.gameObject.GetComponent<HidingPlace>();
+        }
+        
     }
 
     public void Shoot()

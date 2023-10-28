@@ -38,4 +38,24 @@ public static class CommandProcessor
         
         return false;
     }
+
+    public static bool SendCommand(string command, string parameters)
+    {
+        var split1 = command.Split('.');
+        var listenerName = split1[0];
+        var listenerCommand = split1[1];
+
+        var parameterList = parameters.Split(";").ToList();
+
+        foreach (var listener in listeners)
+        {
+            if (listener.ListenerName == listenerName)
+            {
+                listener.ProcessCommand(listenerCommand, parameterList);
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
