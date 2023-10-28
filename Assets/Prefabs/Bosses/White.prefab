@@ -44,10 +44,11 @@ GameObject:
   - component: {fileID: 9178148596377676956}
   - component: {fileID: 3261573343349354026}
   - component: {fileID: 3968954565768407050}
+  - component: {fileID: -6111466353973168387}
   - component: {fileID: 2529313146529110116}
   - component: {fileID: 2693454611322189610}
   m_Layer: 0
-  m_Name: "Chciwo\u015B\u0107"
+  m_Name: White
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,7 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireRate: 10
   shootingTypes:
-  - {fileID: 3968954565768407050}
+  - {fileID: -6111466353973168387}
 --- !u!114 &3968954565768407050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,6 +113,22 @@ MonoBehaviour:
   projectilePrefab: {fileID: 6995159109544581430, guid: 260a93dfeaad47b46b3d93ad36c82d48,
     type: 3}
   degreesBetweenProjectiles: 20
+--- !u!114 &-6111466353973168387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5958198136251886435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a78a20eb6acd7346b4b0e570808367a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 6995159109544581430, guid: 260a93dfeaad47b46b3d93ad36c82d48,
+    type: 3}
+  shotRangeDegrees: 120
+  shotAmount: 20
 --- !u!54 &2529313146529110116
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -158,8 +175,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.25, y: 2.25, z: 2.25}
-  m_Center: {x: 0, y: 1.25, z: 0}
+  m_Size: {x: 1.4, y: 2.5, z: 1.4}
+  m_Center: {x: 0, y: 1.35, z: 0}
 --- !u!1 &7569958831027443927
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,7 +251,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bfdc158d3259b824dbbf46f281697e1e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 62aa08bdfc46c3b45990efb91914ce9d, type: 3}
   m_Color: {r: 0.7647059, g: 0.7647059, b: 0.7647059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
