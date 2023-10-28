@@ -158,41 +158,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cementery
       objectReference: {fileID: 0}
-    - target: {fileID: 8173707843343017466, guid: 3b0317670507e41488b97a091cbca7a6,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 96.82901
-      objectReference: {fileID: 0}
-    - target: {fileID: 8173707843343017466, guid: 3b0317670507e41488b97a091cbca7a6,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 176.08687
-      objectReference: {fileID: 0}
-    - target: {fileID: 8173707843343017466, guid: 3b0317670507e41488b97a091cbca7a6,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.68072844
-      objectReference: {fileID: 0}
-    - target: {fileID: 8173707843343017466, guid: 3b0317670507e41488b97a091cbca7a6,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.020247621
-      objectReference: {fileID: 0}
-    - target: {fileID: 8173707843343017466, guid: 3b0317670507e41488b97a091cbca7a6,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.73211277
-      objectReference: {fileID: 0}
-    - target: {fileID: 8173707843343017466, guid: 3b0317670507e41488b97a091cbca7a6,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.01448381
-      objectReference: {fileID: 0}
-    - target: {fileID: 8173707843343017466, guid: 3b0317670507e41488b97a091cbca7a6,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 94.18
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -266,11 +231,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hut
-      objectReference: {fileID: 0}
-    - target: {fileID: 8503027046401960451, guid: 652277c72a60f7d4395e42f945f3e3bf,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
