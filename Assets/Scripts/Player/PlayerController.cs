@@ -48,4 +48,10 @@ public class PlayerController : MonoBehaviour
         if (context.started)
             player.Interact();
     }
+
+    public void Shoot(InputAction.CallbackContext context)
+    {
+        if (context.started)
+            player.Shoot();
+    }
 }
