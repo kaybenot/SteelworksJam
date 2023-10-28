@@ -51,6 +51,9 @@ MonoBehaviour:
     - clipType: 1
       clips:
       - {fileID: 8300000, guid: a4e936879776fae4c8ef753309feee0f, type: 3}
+    - clipType: 1
+      clips:
+      - {fileID: 8300000, guid: a4e936879776fae4c8ef753309feee0f, type: 3}
   sfxDatabase:
     clipDatas:
     - clipType: 2

@@ -41,7 +41,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void PlayMusic(AudioClipType clipType, int musicIndex = -1)
+    public void PlayMusic(AudioClipType clipType,bool playMusic = true, int musicIndex = -1)
     {
         var clip = musicDatabase.GetClip(clipType, musicIndex);
 
@@ -49,6 +49,10 @@ public class AudioManager : MonoBehaviour
         {
             musicSource.clip = clip;
             musicSource.Play();
+        }
+        if(playMusic == false)
+        {
+            musicSource.Stop();
         }
     }
 
