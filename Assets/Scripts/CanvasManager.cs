@@ -11,6 +11,8 @@ public class CanvasManager : MonoBehaviour, ICommandListener
     public Animator hintAnimator;
     public Animator vignetteAnimator;
     public Animator bloodAnimator;
+    public Animator badSightAnimator;
+
 
     void Awake()
     {
@@ -38,6 +40,9 @@ public class CanvasManager : MonoBehaviour, ICommandListener
 
             case "ShowBlood": bloodAnimator.SetTrigger("Show"); break;
             case "HideBlood": bloodAnimator.SetTrigger("Hide"); break;
+
+            case "ShowBadSight": badSightAnimator.SetTrigger("Show"); break;
+            case "HideBadSight": badSightAnimator.SetTrigger("Hide"); break;
 
             default:
                 Debug.LogWarning($"Unimplemented command: {command}");
