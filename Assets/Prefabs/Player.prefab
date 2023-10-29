@@ -84,7 +84,7 @@ MonoBehaviour:
   StartingHealth: 5
   ShootingManager: {fileID: 6992159876934121597}
   maxInteractDistance: 3
-  immunityTime: 0.25
+  immunityTime: 1
   hidingPlace: {fileID: 0}
   footstepsCooldown: 0.7
 --- !u!114 &4103424943334857891
