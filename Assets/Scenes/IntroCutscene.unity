@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028377, g: 0.22571409, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -443,7 +443,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -187.77228, y: -60.228516, z: -180.81836, w: -19.949982}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -791,9 +791,14 @@ MonoBehaviour:
   dialogs:
   - dialogs:
     - {fileID: 11400000, guid: 7c76cbb3cec5112458362aac3e2ec741, type: 2}
-    - {fileID: 11400000, guid: c8b7a66e23b3a484ebf355f1946e99d1, type: 2}
-    - {fileID: 11400000, guid: 3ecdd3186abd9f34cbff4bf8c79f06ab, type: 2}
-    - {fileID: 11400000, guid: f860f4a6e890f934e88c9311091048ef, type: 2}
+    - {fileID: 11400000, guid: 7e07346691dab6743a981960d5f92858, type: 2}
+    - {fileID: 11400000, guid: 41fcb7909e3575c4bbd126bd031c8b32, type: 2}
+    - {fileID: 11400000, guid: b833fcc8446069c40bd16c975f98fddb, type: 2}
+    - {fileID: 11400000, guid: 0cb077a3560e64141a9833712d95fa2d, type: 2}
+    - {fileID: 11400000, guid: 82ee22bce41ef0c4abd7601c31ecd364, type: 2}
+    - {fileID: 11400000, guid: 91eb0af19a7e9334480bcf8d84d3cb18, type: 2}
+    - {fileID: 11400000, guid: f4d554171bd40de4cb25fd19d5b77f77, type: 2}
+    - {fileID: 11400000, guid: b48f536a23fbdb14ca034f6fa35f3832, type: 2}
     played: 0
 --- !u!82 &1064285472
 AudioSource:
