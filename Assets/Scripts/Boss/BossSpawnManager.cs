@@ -22,7 +22,7 @@ public class BossSpawnManager : MonoBehaviour
 
         currentBossData = bossDatas[bossIndex];
 
-        currentBoss = Instantiate(currentBossData.bossPrefab, currentBossData.ghostPoint.transform);
+        currentBoss = Instantiate(currentBossData.bossPrefab, currentBossData.ghostPoint.SpawnPositionPoint);
         currentBoss.transform.localPosition = Vector3.zero;
         currentBoss.transform.localRotation = Quaternion.identity;
         currentBoss.transform.SetParent(this.transform);

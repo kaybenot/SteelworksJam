@@ -14,9 +14,10 @@ public class Player : MonoBehaviour, IDamagable, ICommandListener
     public float JumpHeight = 0.5f;
     public float MovementSpeed = 1f;
     public float LookSensitivity = 0.1f;
-    public int StartingHealth = 50;
+    public int StartingHealth = 5;
     public PlayerShootingManager ShootingManager;
     public float maxInteractDistance = 1.0f;
+    public float immunityTime = 0.25f;
 
     public string ListenerName { get; set; } = "Player";
 
@@ -33,6 +34,7 @@ public class Player : MonoBehaviour, IDamagable, ICommandListener
     private AudioSource footstepsAudio;
     public float footstepsCooldown = 1.0f;
     private float currentFootstepsCooldown = 0.0f;
+    private float currentImmunityTime;
 
     private void Awake()
     {
@@ -165,8 +167,8 @@ public class Player : MonoBehaviour, IDamagable, ICommandListener
 
     public void Shoot()
     {
-        //if (!canShoot)
-        //    return;
+        if (!canShoot)
+            return;
 
         Debug.Log("Used gun");
         ShootingManager.ShootGuns();
@@ -213,17 +215,26 @@ public class Player : MonoBehaviour, IDamagable, ICommandListener
 
     public void Damage(int damage)
     {
-        currentHealth -= damage;
-        if (currentHealth <= 0)
+        if (Time.time > currentImmunityTime)
         {
-            OnDeath();
+            currentImmunityTime = Time.time + immunityTime;
+
+            currentHealth -= damage;
+            CommandProcessor.SendCommand($"Canvas.SetPlayerHearts {currentHealth}");
+            CommandProcessor.SendCommand($"Canvas.ShowBlood");
+            if (currentHealth <= 0)
+            {
+                CommandProcessor.SendCommand($"Canvas.SetPlayerHearts 0");
+
+                OnDeath();
+            }
         }
     }
 
     public void OnDeath()
     {
         Debug.Log("You died!");
-        CommandProcessor.SendCommand("Canvas.DeathScreen"); //TODO: Add controller
+        CommandProcessor.SendCommand("Canvas.GameOver");
     }
 
     public IEnumerator BlockMovementForTime(float time)
