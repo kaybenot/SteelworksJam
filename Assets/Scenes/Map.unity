@@ -531,16 +531,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3398929101250885463, guid: 0e6b5266327a6cd42acf4d5ea722e8f8,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 30.53
-      objectReference: {fileID: 0}
-    - target: {fileID: 3398929101250885463, guid: 0e6b5266327a6cd42acf4d5ea722e8f8,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 110.49
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -781,43 +771,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2077463057}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2126454724 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4762253213140631111, guid: 369ba38862a87ee4b8aad21c8eebfab4,
-    type: 3}
-  m_PrefabInstance: {fileID: 6460446887387277458}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2126454728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2126454724}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 40b1eff5f7666ca44953ed5305aa48a0, type: 2}
-  m_BuildHeightMesh: 0
 --- !u!1001 &6460446887387277458
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -826,20 +779,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4069118467183682515, guid: 369ba38862a87ee4b8aad21c8eebfab4,
-        type: 3}
-      propertyPath: m_TagString
-      value: Fireplace
-      objectReference: {fileID: 0}
     - target: {fileID: 4762253213140631111, guid: 369ba38862a87ee4b8aad21c8eebfab4,
         type: 3}
       propertyPath: m_Name
       value: Terrain
-      objectReference: {fileID: 0}
-    - target: {fileID: 4762253213140631111, guid: 369ba38862a87ee4b8aad21c8eebfab4,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4788833424957985220, guid: 369ba38862a87ee4b8aad21c8eebfab4,
         type: 3}
@@ -894,11 +837,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4762253213140631111, guid: 369ba38862a87ee4b8aad21c8eebfab4,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2126454728}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 369ba38862a87ee4b8aad21c8eebfab4, type: 3}
 --- !u!4 &8461499278764199969
 Transform:
