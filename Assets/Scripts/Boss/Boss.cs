@@ -77,7 +77,7 @@ public class Boss : MonoBehaviour, IDamagable
     {
         currentHealth -= damage;
         damageParticles.Play();
-        CommandProcessor.SendCommand($"Canvas.SetEnemyHealth {(float)((float)currentHealth / (float)startingHealth)}");
+        CommandProcessor.SendCommand($"Canvas.SetEnemyHealth", $"{(float)((float)currentHealth / (float)startingHealth)}");
         if (currentHealth <= 0)
         {
             CommandProcessor.SendCommand("Canvas.SetEnemyHealth 0");

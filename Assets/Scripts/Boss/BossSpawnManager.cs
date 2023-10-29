@@ -49,7 +49,13 @@ public class BossSpawnManager : MonoBehaviour
             data.ghostPoint.transform.position = boss.transform.position;
             data.ghostPoint.gameObject.SetActive(true);
             data.ghostPoint.GoToTheFireplace();
-
+            for (int i = 0; i < 3; i++)
+            {
+                if (i != bossIndex)
+                {
+                    bossDatas[i].ghostPoint.gameObject.SetActive(false);
+                }
+            }
             CommandProcessor.SendCommand("Dialog.Next");
         }
     }
