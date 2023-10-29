@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 185187873711c0d4e9d0ba7efc39db88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileDamage: 10
+  projectileDamage: 1
   targetTag: Player
   projectileSpeed: 2
   timeToLive: 10

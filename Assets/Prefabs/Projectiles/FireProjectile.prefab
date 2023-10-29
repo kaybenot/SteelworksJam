@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 185187873711c0d4e9d0ba7efc39db88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileDamage: 10
+  projectileDamage: 1
   targetTag: Player
   projectileSpeed: 2
   timeToLive: 10
@@ -286,7 +286,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.9764706, g: 0.42524448, b: 0.27843145, a: 1}
+  m_Color: {r: 0.27843145, g: 0.48979932, b: 0.9764706, a: 1}
   m_Intensity: 1
   m_Range: 5
   m_SpotAngle: 30
