@@ -6,8 +6,9 @@ public class DebuffManager : MonoBehaviour
 {
     private Player player;
     public static DebuffManager instance;
-    private List<int> debuffList = new (){ 0, 1, 2, 3 };
-    private void Awake()
+    private List<int> debuffList = new() { 0, 1, 2, 3 };
+    private HashSet<int> debuffSet = new (){ 0, 1, 2, 3 };
+private void Awake()
     {
         if (instance == null)
         {
@@ -27,41 +28,42 @@ public class DebuffManager : MonoBehaviour
     public void ApplyRandomDebuff()
     {
         int randomDebuff = Random.Range(0, debuffList.Count);
-        switch (randomDebuff)
+        switch (debuffList[randomDebuff])
         {
             case 0:
                 SlowPlayerSpeed();
-                debuffList.Remove(randomDebuff);
                 break;
             case 1:
                 SetFogDensity();
-                debuffList.Remove(randomDebuff);
                 break;
             case 2:
                 SetCameraNoise();
-                debuffList.Remove(randomDebuff);
                 break;
             case 3:
                 SetUiObstacles();
-                debuffList.Remove(randomDebuff);
                 break;
         }
+        debuffList.RemoveAt(randomDebuff);
 
     }
     private void SlowPlayerSpeed()
     {
+        Debug.Log("slowSpeed");
         player.MovementSpeed = 3f;
     }
     private void SetFogDensity()
     {
+        Debug.Log("Fog");
         RenderSettings.fogDensity *= 2;
     }
     private void SetCameraNoise()
     {
+        Debug.Log("CameraNoise");
         player.Head.GetComponent<CinemachineVirtualCamera>().enabled = true;
     }
     private void SetUiObstacles()
     {
+        Debug.Log("UiObstacle");
         CommandProcessor.SendCommand("Canvas.ShowBadSight");
     }
 }
