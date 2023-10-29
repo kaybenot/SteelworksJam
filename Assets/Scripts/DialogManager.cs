@@ -31,6 +31,7 @@ public class DialogManager : MonoBehaviour, ICommandListener
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
+        CommandProcessor.RegisterListener(this);
     }
 
     [ContextMenu("Play Next")]
@@ -47,7 +48,7 @@ public class DialogManager : MonoBehaviour, ICommandListener
     void TestType4() { PlayType(DialogType.TYPE_4); }
 
 
-    void PlayType(DialogType type)
+    void PlayType(DialogType type, bool showDialog = true)
     {
         if (isPlaying)
         {
@@ -79,7 +80,11 @@ public class DialogManager : MonoBehaviour, ICommandListener
             return;
         }
 
-        CommandProcessor.SendCommand("Canvas.ShowDialog");
+        if (showDialog)
+        {
+            CommandProcessor.SendCommand("Canvas.ShowDialog");
+        }
+        
         SetDialog(info.dialogs[0]);
         currentType = typeId;
         info.played = 1;
@@ -89,6 +94,10 @@ public class DialogManager : MonoBehaviour, ICommandListener
     public void PlayNext()
     {
         PlayType((DialogType)(dialogsPlayed++));
+    }
+    public void PlayNextNoDialog()
+    {
+        PlayType((DialogType)(dialogsPlayed++), false);
     }
     public void LoadNextScene()
     {

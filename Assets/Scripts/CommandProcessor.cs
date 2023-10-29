@@ -5,17 +5,18 @@ using UnityEngine;
 
 public static class CommandProcessor
 {
-    private static List<ICommandListener> listeners = new ();
+    private static Dictionary<string, ICommandListener> listeners = new ();
     
     public static void RegisterListener(ICommandListener listener)
     {
-        if (listeners.Contains(listener))
+        if (listeners.ContainsKey(listener.ListenerName))
         {
             Debug.LogWarning("Tried adding a listener to the CommandProcessor second time!");
-            return;
+            Debug.LogWarning("Overwriting...");
+            //return;
         }
             
-        listeners.Add(listener);
+        listeners[listener.ListenerName] =  listener;
     }
 
     public static bool SendCommand(string command)
@@ -29,9 +30,9 @@ public static class CommandProcessor
 
         foreach (var listener in listeners)
         {
-            if (listener.ListenerName == listenerName)
+            if (listener.Key == listenerName)
             {
-                listener.ProcessCommand(cmd, parameters);
+                listener.Value.ProcessCommand(cmd, parameters);
                 return true;
             }
         }
@@ -50,9 +51,9 @@ public static class CommandProcessor
 
         foreach (var listener in listeners)
         {
-            if (listener.ListenerName == listenerName)
+            if (listener.Key == listenerName)
             {
-                listener.ProcessCommand(listenerCommand, parameterList);
+                listener.Value.ProcessCommand(listenerCommand, parameterList);
                 return true;
             }
         }
