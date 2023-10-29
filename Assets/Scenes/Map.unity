@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -746,6 +746,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &744165940 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7012045814261281937, guid: 5b2162beda5ce7c4f808d97a629374bd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1908844442}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &868020563
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1004,6 +1010,11 @@ PrefabInstance:
       propertyPath: musicDatabase.clipDatas.Array.data[0].clips.Array.data[0]
       value: 
       objectReference: {fileID: 8300000, guid: 94e931f913e686f4e92f0e778ee98e1d, type: 3}
+    - target: {fileID: 2628252081301245884, guid: 18addd4499e602a4bac8d2049befaa95,
+        type: 3}
+      propertyPath: ghostAI
+      value: 
+      objectReference: {fileID: 744165940}
     - target: {fileID: 5002711152672213113, guid: 18addd4499e602a4bac8d2049befaa95,
         type: 3}
       propertyPath: m_Name
@@ -1396,6 +1407,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6901078925290117289, guid: 0e6b5266327a6cd42acf4d5ea722e8f8,
+        type: 3}
+      propertyPath: bossAI
+      value: 
+      objectReference: {fileID: 744165940}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2582,3 +2598,4 @@ SceneRoots:
   - {fileID: 8145858955978771855}
   - {fileID: 1154039793}
   - {fileID: 174522322}
+  - {fileID: 739408797}

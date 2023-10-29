@@ -30,6 +30,16 @@ public class BossSpawnManager : MonoBehaviour
         currentBoss.Init(currentBossData.ghostPoint.SpawnPositionPoint, this, bossIndex);
     }
 
+    public void RealDespawnBoss()
+    {
+        if (currentBoss == null)
+            return;
+        
+        Destroy(currentBoss.gameObject);
+        currentBoss = null;
+        currentBossData = null;
+    }
+
     public void DespawnBoss()
     {
         if(currentBoss != null)

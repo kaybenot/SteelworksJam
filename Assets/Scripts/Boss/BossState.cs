@@ -22,7 +22,8 @@ public class BossState : MonoBehaviour, ICommandListener
     {
         if (command is "End" or "Restart")
         {
-            EndFight();
+            if (command == "End")
+                EndFight();
             CommandProcessor.SendCommand("Player.DisableGun");
             CommandProcessor.SendCommand("Canvas.HideWeapons");
             CommandProcessor.SendCommand("Canvas.HideEnemyHealth");
@@ -31,10 +32,14 @@ public class BossState : MonoBehaviour, ICommandListener
             {
                 CommandProcessor.SendCommand($"ArenaManager.Hide {currentBossIndex}");
             }
-            currentBossIndex = -1;
 
             if (command == "Restart")
-                bossSpawnManager.bossDatas[currentBossIndex].bossPrefab.gameObject.SetActive(true);
+            {
+                bossSpawnManager.RealDespawnBoss();
+                bossSpawnManager.bossDatas[currentBossIndex].ghostPoint.gameObject.SetActive(true);
+            }
+            
+            currentBossIndex = -1;
         }
         else if (IsInteger(command, out int index))
         {
