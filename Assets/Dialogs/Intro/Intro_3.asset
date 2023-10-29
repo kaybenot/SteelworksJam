@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e985947a5c1dbe46934a421a3b4869f, type: 3}
+  m_Name: Intro_3
+  m_EditorClassIdentifier: 
+  text: One soul, two souls, three went by. But one thought stays on all mind. Big
+    and ugly, fat, UNSIGHTLY. Soul too stubborn to even budge.
+  clip: {fileID: 8300000, guid: cd7cfd2e5b9efbd4c9c1a5edaad257d2, type: 3}
