@@ -69,6 +69,12 @@ public class PlayerController : MonoBehaviour, ICommandListener
             player.Shoot();
     }
 
+    public void Pause(InputAction.CallbackContext context)
+    {
+        if (context.started)
+            CommandProcessor.SendCommand("Canvas.Pause");
+    }
+
     public void ProcessCommand(string command, List<string> parameters)
     {
         switch (command)
