@@ -15,7 +15,7 @@ public class CanvasManager : MonoBehaviour, ICommandListener
     public Animator badSightAnimator;
     public Animator weaponAnimator;
     public Animator weaponShootingAnimator;
-    public Animator gameOverAnimator;
+    public Animator pauseAnimator;
 
     public Image enemyHealthBarFill;
     public GameObject playerHeartsParent;
@@ -58,12 +58,20 @@ public class CanvasManager : MonoBehaviour, ICommandListener
 
             case "ShootWeapons": weaponShootingAnimator.SetTrigger("Shoot"); break;
 
-            case "GameOver": { 
-                    gameOverAnimator.SetTrigger("Show");
+            case "Pause": {
+                    pauseAnimator.SetTrigger("Pause");
                     CommandProcessor.SendCommand("PlayerController.Block");
                     CursorManager.ShowCursor();
                     Time.timeScale = 0.0f;
                     break; 
+                }
+            case "Unpause":
+                {
+                    pauseAnimator.SetTrigger("Unpause");
+                    CommandProcessor.SendCommand("PlayerController.Unblock");
+                    CursorManager.HideCursor();
+                    Time.timeScale = 1.0f;
+                    break;
                 }
 
             default:
