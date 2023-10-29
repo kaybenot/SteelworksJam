@@ -26,7 +26,7 @@ public class BossSpawnManager : MonoBehaviour
         currentBoss.transform.localPosition = Vector3.zero;
         currentBoss.transform.localRotation = Quaternion.identity;
         currentBoss.transform.SetParent(this.transform);
-        currentBoss.Init();
+        currentBoss.Init(currentBossData.ghostPoint.SpawnPositionPoint);
     }
 
     public void DespawnBoss()
