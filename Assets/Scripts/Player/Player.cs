@@ -147,8 +147,8 @@ public class Player : MonoBehaviour, IDamagable, ICommandListener
 
     public void Shoot()
     {
-        //if (!canShoot)
-        //    return;
+        if (!canShoot)
+            return;
 
         Debug.Log("Used gun");
         ShootingManager.ShootGuns();
