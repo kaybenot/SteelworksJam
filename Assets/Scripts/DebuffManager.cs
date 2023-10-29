@@ -55,7 +55,7 @@ private void Awake()
     private void SlowPlayerSpeed()
     {
         Debug.Log("slowSpeed");
-        player.MovementSpeed = 3f;
+        player.MovementSpeed = 4f;
     }
     private void SetFogDensity()
     {

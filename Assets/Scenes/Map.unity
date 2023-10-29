@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028377, g: 0.22571409, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1086,6 +1086,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 580915660966173471, guid: 18addd4499e602a4bac8d2049befaa95,
         type: 3}
+      propertyPath: sfxDatabase.clipDatas.Array.data[0].clips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6d28480594bb63c45b5fb11d17bc113b, type: 3}
+    - target: {fileID: 580915660966173471, guid: 18addd4499e602a4bac8d2049befaa95,
+        type: 3}
       propertyPath: musicDatabase.clipDatas.Array.data[0].clips.Array.data[0]
       value: 
       objectReference: {fileID: 8300000, guid: 94e931f913e686f4e92f0e778ee98e1d, type: 3}
@@ -1712,6 +1717,11 @@ PrefabInstance:
       propertyPath: lastBossSpawnManager
       value: 
       objectReference: {fileID: 964459208}
+    - target: {fileID: 6951323726814208763, guid: 0e6b5266327a6cd42acf4d5ea722e8f8,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1796,6 +1806,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6989323367822729471, guid: dd06d83b4b5bf2f4bb0a256b60585704,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.4862745
       objectReference: {fileID: 0}
     - target: {fileID: 7080695944247138596, guid: dd06d83b4b5bf2f4bb0a256b60585704,
         type: 3}

@@ -52,7 +52,7 @@ MonoBehaviour:
   - {fileID: 7593652337569142783}
   movableStones: {fileID: 5386147560486934239}
   stoneShowAmount: 2
-  showTime: 2
+  showTime: 3
   showSpeed: 1
   hideSpeed: 1
   yHeight: 0
@@ -10295,7 +10295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 667550cd9bb8efd42aa4b349f6959e72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 800
+  startingHealth: 200
   shotManager: {fileID: 3261573343349354026}
   bossInteraction: {fileID: 4872553621589988758}
   spriteRenderer: {fileID: 6359645246393295654}
@@ -10335,7 +10335,7 @@ MonoBehaviour:
   WaitForAttack: 3
   projectilePrefab: {fileID: 6995159109544581430, guid: 06f8d1f6708d90d4ebcbdb6275599725,
     type: 3}
-  projectileAmount: 100
+  projectileAmount: 60
   timeBetweenShoots: 0.01
   customSpeed: 25
   randomSpread: 10

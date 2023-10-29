@@ -9922,7 +9922,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 667550cd9bb8efd42aa4b349f6959e72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 700
+  startingHealth: 500
   shotManager: {fileID: 3261573343349354026}
   bossInteraction: {fileID: 1945456549899700049}
   spriteRenderer: {fileID: 6359645246393295654}

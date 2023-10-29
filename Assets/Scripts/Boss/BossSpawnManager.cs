@@ -53,9 +53,10 @@ public class BossSpawnManager : MonoBehaviour
     {
         foreach (BossData ghosts in bossDatas)
         {
-            if (ghosts.isKilled)
-                continue;
-            else ghosts.ghostPoint.gameObject.SetActive(false);
+            //if (ghosts.isKilled)
+            //    continue;
+            //else ghosts.ghostPoint.gameObject.SetActive(false);
+            ;
         }
     }
     public void SpawnGhost(Boss boss, int bossIndex)
@@ -67,13 +68,13 @@ public class BossSpawnManager : MonoBehaviour
             data.ghostPoint.transform.position = boss.transform.position;
             data.ghostPoint.gameObject.SetActive(true);
             data.ghostPoint.GoToTheFireplace();
-            for (int i = 0; i < 3; i++)
-            {
-                if (i != bossIndex)
-                {
-                    bossDatas[i].ghostPoint.gameObject.SetActive(false);
-                }
-            }
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    if (i != bossIndex)
+            //    {
+            //        bossDatas[i].ghostPoint.gameObject.SetActive(false);
+            //    }
+            //}
             CommandProcessor.SendCommand("Dialog.Next");
         }
     }
