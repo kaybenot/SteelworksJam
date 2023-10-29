@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BossSpawnManager : MonoBehaviour
 {
-    [SerializeField] private List<BossData> bossDatas;
+    public List<BossData> bossDatas;
 
     private Boss currentBoss; 
     private BossData currentBossData;

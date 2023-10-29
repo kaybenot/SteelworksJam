@@ -8,7 +8,9 @@ public class BossState : MonoBehaviour, ICommandListener
     [SerializeField] private BossSpawnManager bossSpawnManager;
     public string ListenerName { get; set; } = "Boss";
 
-    private int currentBossIndex = -1;
+    public static int CurrentBossIndex => currentBossIndex;
+
+    private static int currentBossIndex = -1;
 
     void Awake()
     {
@@ -17,7 +19,7 @@ public class BossState : MonoBehaviour, ICommandListener
 
     public void ProcessCommand(string command, List<string> parameters)
     {
-        if (command == "End")
+        if (command is "End" or "Restart")
         {
             EndFight();
             CommandProcessor.SendCommand("Player.DisableGun");
@@ -28,6 +30,10 @@ public class BossState : MonoBehaviour, ICommandListener
             {
                 CommandProcessor.SendCommand($"ArenaManager.Hide {currentBossIndex}");
             }
+            currentBossIndex = -1;
+
+            if (command == "Restart")
+                bossSpawnManager.bossDatas[currentBossIndex].bossPrefab.gameObject.SetActive(true);
         }
         else if (IsInteger(command, out int index))
         {

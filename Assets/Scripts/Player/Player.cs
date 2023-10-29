@@ -234,7 +234,20 @@ public class Player : MonoBehaviour, IDamagable, ICommandListener
     public void OnDeath()
     {
         Debug.Log("You died!");
-        CommandProcessor.SendCommand("Canvas.GameOver");
+        
+        // CURRENTLY WE ONLY RESPAWN PLAYER AND CURRENT BOSS
+        //CommandProcessor.SendCommand("Canvas.GameOver");
+
+        StartCoroutine(Respawn());
+        CommandProcessor.SendCommand("Boss.Restart");
+    }
+
+    private IEnumerator Respawn()
+    {
+        CommandProcessor.SendCommand("Fade.out");
+        yield return new WaitForSeconds(1.5f);
+        transform.position = GameObject.FindGameObjectWithTag("Respawn").transform.position;
+        CommandProcessor.SendCommand("Fade.in");
     }
 
     public IEnumerator BlockMovementForTime(float time)
