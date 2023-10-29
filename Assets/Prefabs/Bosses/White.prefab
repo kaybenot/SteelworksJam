@@ -83,6 +83,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 100
+  shotManager: {fileID: 3261573343349354026}
+  spriteRenderer: {fileID: 6359645246393295654}
+  attackSprite: {fileID: 21300000, guid: 32223a7daa390a94d8dd6e9442095ed5, type: 3}
+  deadSprite: {fileID: 21300000, guid: 1e7fe0b91141b434ab5cbb76a0158eca, type: 3}
 --- !u!114 &3261573343349354026
 MonoBehaviour:
   m_ObjectHideFlags: 0

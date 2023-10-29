@@ -24,13 +24,13 @@ public class PlayerController : MonoBehaviour, ICommandListener
 
     public void Move(InputAction.CallbackContext context)
     {
-        if (blockPlayer) return;
-
         if (context.canceled)
             player.Move(Vector2.zero);
         
         if (!context.performed)
             return;
+
+        if (blockPlayer) return;
 
         var value = context.ReadValue<Vector2>();
         player.Move(value);
@@ -38,11 +38,11 @@ public class PlayerController : MonoBehaviour, ICommandListener
     
     public void Turn(InputAction.CallbackContext context)
     {
-        if (blockPlayer) return;
-
         if (!context.performed)
             return;
-        
+
+        if (blockPlayer) return;
+
         var value = context.ReadValue<Vector2>();
         player.Turn(value);
     }

@@ -1,3 +1,4 @@
+using Cinemachine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -5,6 +6,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour, IDamagable, ICommandListener
 {
+    [SerializeField]
+    private CinemachineImpulseSource cinemachineImpulseSource;
     public GameObject Head;
     public Transform HeadMountPoint;
     public float JumpHeight = 0.5f;
@@ -18,7 +21,7 @@ public class Player : MonoBehaviour, IDamagable, ICommandListener
 
     public bool IsGrounded => Vector3.Dot(collisionNormal, Vector3.up) > 0.7f;
 
-    private HidingPlace hidingPlace;
+    public HidingPlace hidingPlace;
 
     private Rigidbody rb;
     private Vector3 collisionNormal = Vector3.zero;
@@ -141,8 +144,8 @@ public class Player : MonoBehaviour, IDamagable, ICommandListener
 
     public void Shoot()
     {
-        if (!canShoot)
-            return;
+        //if (!canShoot)
+        //    return;
 
         Debug.Log("Used gun");
         ShootingManager.ShootGuns();
@@ -190,6 +193,7 @@ public class Player : MonoBehaviour, IDamagable, ICommandListener
     public void Damage(int damage)
     {
         currentHealth -= damage;
+        cinemachineImpulseSource.GenerateImpulse(1f);
         if (currentHealth <= 0)
         {
             OnDeath();
