@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18d8188202f84894b8d58df8927cb5bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 10
+  fireRate: 2
   shootingTypes:
   - {fileID: -6111466353973168387}
 --- !u!114 &3968954565768407050
@@ -116,7 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 6995159109544581430, guid: 260a93dfeaad47b46b3d93ad36c82d48,
     type: 3}
-  degreesBetweenProjectiles: 20
+  degreesBetweenProjectiles: 30
 --- !u!114 &-6111466353973168387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,6 +133,7 @@ MonoBehaviour:
     type: 3}
   shotRangeDegrees: 120
   shotAmount: 20
+  shotSpeed: 10
 --- !u!54 &2529313146529110116
 Rigidbody:
   m_ObjectHideFlags: 0

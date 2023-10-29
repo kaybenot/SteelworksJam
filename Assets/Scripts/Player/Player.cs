@@ -53,7 +53,10 @@ public class Player : MonoBehaviour, IDamagable, ICommandListener
                 canShoot = false;
                 break;
             case "PushPlayer":
-                PushPlayer();
+                if (parameters.Count > 0)
+                    PushPlayer(int.Parse(parameters[0]));
+                else
+                    PushPlayer(5f);
                 break;
             default:
                 Debug.LogWarning($"Unimplemented command: {command}");
@@ -96,11 +99,11 @@ public class Player : MonoBehaviour, IDamagable, ICommandListener
         velocity = new Vector3(direction.x * MovementSpeed, 0f, direction.y * MovementSpeed);
     }
 
-    public void PushPlayer()
+    public void PushPlayer(float speed)
     {
-        var pushVelocity = -Camera.main.transform.forward;
-        pushVelocity.y = 0.75f;
-        rb.velocity += pushVelocity * 5f;
+        var pushVelocity = -Camera.main.transform.forward * speed;
+        pushVelocity.y = 0.75f * (speed / 2f);
+        rb.velocity += pushVelocity;
         StartCoroutine(BlockMovementForTime(0.8f));
     }
 
@@ -193,7 +196,6 @@ public class Player : MonoBehaviour, IDamagable, ICommandListener
     public void Damage(int damage)
     {
         currentHealth -= damage;
-        cinemachineImpulseSource.GenerateImpulse(1f);
         if (currentHealth <= 0)
         {
             OnDeath();

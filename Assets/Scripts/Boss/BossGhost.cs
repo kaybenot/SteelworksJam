@@ -7,6 +7,7 @@ using static AIState;
 public class BossGhost : MonoBehaviour, IInteractable
 {
     [SerializeField] private int bossGhostIndex;
+    [SerializeField] private float pushSpeed = 5f;
     private Player player;
     private Transform fireplace;
     public bool canGoToTheFirePlace;
@@ -21,9 +22,8 @@ public class BossGhost : MonoBehaviour, IInteractable
     }
     public void Use(Player player)
     {
-        string command = "Boss." + bossGhostIndex;
-        CommandProcessor.SendCommand(command);
-        this.gameObject.SetActive(false);
+        CommandProcessor.SendCommand($"Boss.{bossGhostIndex} {pushSpeed}");
+        gameObject.SetActive(false);
     }
 
     public void GoToTheFireplace()
