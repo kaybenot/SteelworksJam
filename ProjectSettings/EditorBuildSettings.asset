@@ -14,12 +14,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Map.unity
     guid: b9427dc4c24563f47b1a96b009d4508b
-  - enabled: 0
-    path: Assets/Scenes/TestMovement.unity
-    guid: efc0fe500358e56439c34e23a28072a3
-  - enabled: 0
-    path: Assets/Scenes/Game.unity
-    guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
     path: Assets/Scenes/OutroCutscene.unity
     guid: 3347607e3b2ae8f439137b907f6a71be

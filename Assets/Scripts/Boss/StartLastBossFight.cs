@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StartLastBossFight : MonoBehaviour, ICommandListener
 {
@@ -42,5 +43,6 @@ public class StartLastBossFight : MonoBehaviour, ICommandListener
     private void EndLastFight()
     {
         bossSpawnManager.DespawnBoss();
+        SceneManager.LoadScene(3);
     }
 }
