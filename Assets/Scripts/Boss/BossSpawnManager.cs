@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BossSpawnManager : MonoBehaviour
 {
-    [SerializeField] private List<BossData> bossDatas;
+    public List<BossData> bossDatas;
 
     private Boss currentBoss; 
     private BossData currentBossData;
@@ -28,6 +28,16 @@ public class BossSpawnManager : MonoBehaviour
         currentBoss.transform.localRotation = Quaternion.identity;
         currentBoss.transform.SetParent(this.transform);
         currentBoss.Init(currentBossData.ghostPoint.SpawnPositionPoint, this, bossIndex);
+    }
+
+    public void RealDespawnBoss()
+    {
+        if (currentBoss == null)
+            return;
+        
+        Destroy(currentBoss.gameObject);
+        currentBoss = null;
+        currentBossData = null;
     }
 
     public void DespawnBoss()
