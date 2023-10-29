@@ -34,7 +34,9 @@ public class BossGhost : MonoBehaviour, IInteractable
     public void GoToTheFireplace()
     {
         canGoToTheFirePlace = true;
+        transform.gameObject.layer = LayerMask.NameToLayer("Default");
     }
+
     private void Update()
     {
         if (canGoToTheFirePlace)

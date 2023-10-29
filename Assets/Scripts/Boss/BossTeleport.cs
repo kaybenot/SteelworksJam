@@ -13,9 +13,9 @@ public class BossTeleport : BaseBossAction
     private SpecialActionType specialActionType => SpecialActionType.OnAttack;
     public override SpecialActionType SpecialActionType => specialActionType;
 
-    public void Start()
+    public override void Init(Boss boss)
     {
-        pointsParent.transform.parent = null;
+        pointsParent.transform.parent = boss.SpawnPoint;
         particleParent.transform.parent = null;
     }
 
