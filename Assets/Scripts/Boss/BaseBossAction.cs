@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class BaseBossAction : MonoBehaviour
 {
     public abstract SpecialActionType SpecialActionType { get; }
-
+    public abstract void Init(Boss boss);
     public abstract void PlayAction(Boss boss);
 }
 
