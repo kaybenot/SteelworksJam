@@ -7,6 +7,7 @@ public class SceneSwapper : MonoBehaviour
 {
     public void GoToMainMenu()
     {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene(0);
     }
 }
