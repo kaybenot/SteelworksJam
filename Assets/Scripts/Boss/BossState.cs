@@ -8,6 +8,7 @@ public class BossState : MonoBehaviour, ICommandListener
     [SerializeField] private BossSpawnManager bossSpawnManager;
     [SerializeField] private BossSpawnManager lastBossSpawnManager;
     [SerializeField] private GameObject bossAI;
+    [SerializeField] private AudioSource music; 
     public string ListenerName { get; set; } = "Boss";
 
     public static int CurrentBossIndex => currentBossIndex;
@@ -16,6 +17,7 @@ public class BossState : MonoBehaviour, ICommandListener
 
     void Awake()
     {
+        music = GetComponent<AudioSource>();
         CommandProcessor.RegisterListener(this);
     }
 
@@ -29,6 +31,7 @@ public class BossState : MonoBehaviour, ICommandListener
             CommandProcessor.SendCommand("Canvas.HideWeapons");
             CommandProcessor.SendCommand("Canvas.HideEnemyHealth");
             CommandProcessor.SendCommand("Canvas.HidePlayerHealth");
+            music.Stop();
             if (currentBossIndex != -1)
             {
                 CommandProcessor.SendCommand($"ArenaManager.Hide {currentBossIndex}");
@@ -46,6 +49,7 @@ public class BossState : MonoBehaviour, ICommandListener
         else if (IsInteger(command, out int index))
         {
             Debug.Log($"Spawned boss with index {index}");
+            music.Play();
             bossSpawnManager.SpawnBoss(index);
             CommandProcessor.SendCommand("Player.EnableGun");
             CommandProcessor.SendCommand("Canvas.ShowWeapons");

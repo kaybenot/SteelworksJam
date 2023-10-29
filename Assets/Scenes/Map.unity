@@ -1699,6 +1699,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6901078925290117289, guid: 0e6b5266327a6cd42acf4d5ea722e8f8,
         type: 3}
+      propertyPath: music
+      value: 
+      objectReference: {fileID: 1567033266}
+    - target: {fileID: 6901078925290117289, guid: 0e6b5266327a6cd42acf4d5ea722e8f8,
+        type: 3}
       propertyPath: bossAI
       value: 
       objectReference: {fileID: 744165940}
@@ -1712,6 +1717,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e6b5266327a6cd42acf4d5ea722e8f8, type: 3}
+--- !u!82 &1567033266 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6951323726814208763, guid: 0e6b5266327a6cd42acf4d5ea722e8f8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1567033265}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1686153463 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3924977194054659169, guid: 369ba38862a87ee4b8aad21c8eebfab4,
