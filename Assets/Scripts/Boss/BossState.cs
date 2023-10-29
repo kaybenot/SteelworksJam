@@ -19,6 +19,7 @@ public class BossState : MonoBehaviour, ICommandListener
             EndFight();
             CommandProcessor.SendCommand("Player.DisableGun");
             CommandProcessor.SendCommand("Canvas.HideWeapons");
+            CommandProcessor.SendCommand("Canvas.HideEnemyHealth");
         }
         else if (IsInteger(command, out int index))
         {
@@ -26,7 +27,11 @@ public class BossState : MonoBehaviour, ICommandListener
             bossSpawnManager.SpawnBoss(index);
             CommandProcessor.SendCommand("Player.EnableGun");
             CommandProcessor.SendCommand("Canvas.ShowWeapons");
-            CommandProcessor.SendCommand("Player.PushPlayer");
+            if (parameters.Count > 0)
+                CommandProcessor.SendCommand($"Player.PushPlayer {parameters[0]}");
+            else
+                CommandProcessor.SendCommand("Player.PushPlayer");
+            CommandProcessor.SendCommand("Canvas.ShowEnemyHealth");
         }
     }
 
