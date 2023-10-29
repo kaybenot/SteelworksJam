@@ -2,6 +2,7 @@ using Cinemachine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Player : MonoBehaviour, IDamagable, ICommandListener
@@ -29,6 +30,9 @@ public class Player : MonoBehaviour, IDamagable, ICommandListener
     private int currentHealth;
     private bool canShoot = false;
     private bool canMove = true;
+    private AudioSource footstepsAudio;
+    public float footstepsCooldown = 1.0f;
+    private float currentFootstepsCooldown = 0.0f;
 
     private void Awake()
     {
@@ -40,6 +44,11 @@ public class Player : MonoBehaviour, IDamagable, ICommandListener
 
         if (Head == null)
             Debug.LogAssertion("There is no assigned Head to Player script!");
+
+        footstepsAudio = GetComponent<AudioSource>();
+        if(footstepsAudio == null)
+            Debug.LogAssertion("Could not locate AudioSource on Player!");
+
     }
 
     public void ProcessCommand(string command, List<string> parameters)
@@ -53,7 +62,10 @@ public class Player : MonoBehaviour, IDamagable, ICommandListener
                 canShoot = false;
                 break;
             case "PushPlayer":
-                PushPlayer();
+                if (parameters.Count > 0)
+                    PushPlayer(int.Parse(parameters[0]));
+                else
+                    PushPlayer(5f);
                 break;
             default:
                 Debug.LogWarning($"Unimplemented command: {command}");
@@ -78,13 +90,19 @@ public class Player : MonoBehaviour, IDamagable, ICommandListener
 
     private void Update()
     {
+        currentFootstepsCooldown += Time.deltaTime;
+        if (rb.velocity.magnitude > 0.5 && currentFootstepsCooldown > footstepsCooldown)
+        {
+            footstepsAudio.pitch = UnityEngine.Random.Range(0.95f, 1.05f);
+            footstepsAudio.panStereo = -footstepsAudio.panStereo;
+            footstepsAudio.Play();
+            currentFootstepsCooldown = 0.0f;
+        }
+
         RaycastHit hit;
         LayerMask mask = LayerMask.GetMask("Interactable");
         if (Physics.Raycast(Head.transform.position, Head.transform.forward, out hit, maxInteractDistance, mask))
         {
-            // Get Type
-            // Set Hint Type
-
             // Show Hint
             CommandProcessor.SendCommand("Canvas.ShowHint");
         }
@@ -99,11 +117,11 @@ public class Player : MonoBehaviour, IDamagable, ICommandListener
         velocity = new Vector3(direction.x * MovementSpeed, 0f, direction.y * MovementSpeed);
     }
 
-    public void PushPlayer()
+    public void PushPlayer(float speed)
     {
-        var pushVelocity = -Camera.main.transform.forward;
-        pushVelocity.y = 0.75f;
-        rb.velocity += pushVelocity * 5f;
+        var pushVelocity = -Camera.main.transform.forward * speed;
+        pushVelocity.y = 0.75f * (speed / 2f);
+        rb.velocity += pushVelocity;
         StartCoroutine(BlockMovementForTime(0.8f));
     }
 
@@ -132,6 +150,7 @@ public class Player : MonoBehaviour, IDamagable, ICommandListener
         {
             hidingPlace.Unhide();
             hidingPlace = null;
+            return;
         }
 
         RaycastHit hit;
@@ -142,7 +161,6 @@ public class Player : MonoBehaviour, IDamagable, ICommandListener
 
             hidingPlace = hit.collider.gameObject.GetComponent<HidingPlace>();
         }
-        
     }
 
     public void Shoot()
@@ -196,7 +214,6 @@ public class Player : MonoBehaviour, IDamagable, ICommandListener
     public void Damage(int damage)
     {
         currentHealth -= damage;
-        cinemachineImpulseSource.GenerateImpulse(1f);
         if (currentHealth <= 0)
         {
             OnDeath();

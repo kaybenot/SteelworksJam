@@ -1,10 +1,11 @@
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 enum DialogType
 {
-    TYPE_0, TYPE_1, TYPE_2, TYPE_3
+    TYPE_0, TYPE_1, TYPE_2, TYPE_3, TYPE_4
 }
 
 [Serializable]
@@ -14,20 +15,25 @@ public class DialogTypeInfo
     public int played = 0;
 }
 
-public class DialogManager : MonoBehaviour
+public class DialogManager : MonoBehaviour, ICommandListener
 {
     public TextMeshProUGUI text;
     public DialogTypeInfo[] dialogs;
     bool isPlaying = false;
     int currentType = -1;
+    private int dialogsPlayed = 0;
 
     private AudioSource audioSource;
+
+    public string ListenerName { get; set; } = "Dialog";
 
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
     }
 
+    [ContextMenu("Play Next")]
+    void TestPlayNext() { PlayNext(); }
     [ContextMenu("Test Type 0")]
     void TestType0() { PlayType(DialogType.TYPE_0); }
     [ContextMenu("Test Type 1")]
@@ -36,6 +42,8 @@ public class DialogManager : MonoBehaviour
     void TestType2() { PlayType(DialogType.TYPE_2); }
     [ContextMenu("Test Type 3")]
     void TestType3() { PlayType(DialogType.TYPE_3); }
+    [ContextMenu("Test Type 4")]
+    void TestType4() { PlayType(DialogType.TYPE_4); }
 
 
     void PlayType(DialogType type)
@@ -77,6 +85,11 @@ public class DialogManager : MonoBehaviour
         isPlaying = true;
     }
 
+    void PlayNext()
+    {
+        PlayType((DialogType)(dialogsPlayed+++1));
+    }
+
     void SetDialog(DialogObjectSO dialog)
     {
         audioSource.clip = dialog.clip;
@@ -104,6 +117,19 @@ public class DialogManager : MonoBehaviour
             {
                 SetDialog(info.dialogs[info.played++]);
             }
+        }
+    }
+
+    public void ProcessCommand(string command, List<string> parameters)
+    {
+        switch (command)
+        {
+            case "Next":
+                PlayNext();
+                break;
+            default:
+                Debug.LogWarning($"Unimplemented command: {command}");
+                break;
         }
     }
 }

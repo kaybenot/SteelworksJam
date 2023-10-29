@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5665563663927506290}
   - component: {fileID: 6322997994132002754}
   - component: {fileID: 310853545683502010}
+  - component: {fileID: 3099886473223689200}
   m_Layer: 0
   m_Name: stol_1
   m_TagString: Untagged
@@ -83,3 +84,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3099886473223689200
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4052364237387152644}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5.3643837, y: 1.999618, z: 2.532524}
+  m_Center: {x: -0.0022194386, y: -0.98682725, z: 0.011709511}
