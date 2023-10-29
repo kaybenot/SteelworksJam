@@ -39,7 +39,15 @@ public class BossSpawnManager : MonoBehaviour
             currentBossData = null;
         }
     }
-
+    public void SummonRemainingGhosts()
+    {
+        foreach (BossData ghosts in bossDatas)
+        {
+            if (ghosts.isKilled)
+                continue;
+            else ghosts.ghostPoint.gameObject.SetActive(false);
+        }
+    }
     public void SpawnGhost(Boss boss, int bossIndex)
     {
         var data = bossDatas[bossIndex];
