@@ -36,6 +36,8 @@ public class Player : MonoBehaviour, IDamagable, ICommandListener
     private float currentFootstepsCooldown = 0.0f;
     private float currentImmunityTime;
 
+    public Rigidbody Rb => rb;
+
     private void Awake()
     {
         CommandProcessor.RegisterListener(this);

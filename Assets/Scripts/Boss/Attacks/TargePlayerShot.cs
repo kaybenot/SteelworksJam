@@ -8,6 +8,7 @@ public class TargePlayerShot : BaseBossShot
     [SerializeField] private int projectileAmount = 5;
     [SerializeField] private float timeBetweenShoots = 0.5f;
     [SerializeField] private float customSpeed = 2f; // -1 default
+    [SerializeField] private float randomSpread = 0f;
 
     private Coroutine currentCoroutine;
 
@@ -41,6 +42,9 @@ public class TargePlayerShot : BaseBossShot
             projectile.transform.position = spawnPoint.position;
 
             Vector3 eulerAngles = Quaternion.LookRotation(target.position - spawnPoint.position).eulerAngles;
+            if (randomSpread != 0) eulerAngles.y += Random.Range(-randomSpread, randomSpread);
+            eulerAngles.x = 0;
+            eulerAngles.z = 0;
 
             Vector3 direction = Quaternion.Euler(eulerAngles) * Vector3.forward;
             direction = direction.normalized;
