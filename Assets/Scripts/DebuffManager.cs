@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class DebuffManager : MonoBehaviour
 {
+    [SerializeField] private GameObject ghostAI;
     private Player player;
     public static DebuffManager instance;
     private List<int> debuffList = new() { 0, 1, 2, 3 };
-    private HashSet<int> debuffSet = new (){ 0, 1, 2, 3 };
 private void Awake()
     {
         if (instance == null)
@@ -27,6 +27,8 @@ private void Awake()
     }
     public void ApplyRandomDebuff()
     {
+        ghostAI.SetActive(true);
+
         int randomDebuff = Random.Range(0, debuffList.Count);
         switch (debuffList[randomDebuff])
         {
