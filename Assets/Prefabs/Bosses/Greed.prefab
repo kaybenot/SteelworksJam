@@ -9958,11 +9958,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaitForAttack: 0
-  projectilePrefab: {fileID: 6995159109544581430, guid: 260a93dfeaad47b46b3d93ad36c82d48,
+  projectilePrefab: {fileID: 6995159109544581430, guid: 1d7a027513c63314db316a77a822eefb,
     type: 3}
   projectileAmount: 10
   timeBetweenShoots: 0.3
   customSpeed: 5
+  randomSpread: 0
 --- !u!114 &3968954565768407050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9976,7 +9977,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaitForAttack: 0
-  projectilePrefab: {fileID: 6995159109544581430, guid: 260a93dfeaad47b46b3d93ad36c82d48,
+  projectilePrefab: {fileID: 6995159109544581430, guid: 1d7a027513c63314db316a77a822eefb,
     type: 3}
   degreesBetweenProjectiles: 20
   projectileSpeed: 30
@@ -9993,7 +9994,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaitForAttack: 0
-  projectilePrefab: {fileID: 6995159109544581430, guid: 260a93dfeaad47b46b3d93ad36c82d48,
+  projectilePrefab: {fileID: 6995159109544581430, guid: 1d7a027513c63314db316a77a822eefb,
     type: 3}
   shotRangeDegrees: 360
   shotAmount: 12

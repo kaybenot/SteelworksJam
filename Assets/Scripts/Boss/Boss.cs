@@ -23,6 +23,8 @@ public class Boss : MonoBehaviour, IDamagable
     protected BossSpawnManager spawnManager;
     protected int ghostBossIndex;
 
+    protected bool isKilled = false;
+
     public Transform SpawnPoint => spawnPoint;
     public int GhostBossIndex => ghostBossIndex;
 
@@ -38,6 +40,7 @@ public class Boss : MonoBehaviour, IDamagable
 
     public virtual void Init(Transform spawnPoint, BossSpawnManager spawnManager, int ghostBossIndex)
     {
+        isKilled = false;
         this.spawnManager = spawnManager;
         this.spawnPoint = spawnPoint;
         this.ghostBossIndex = ghostBossIndex;
@@ -100,12 +103,13 @@ public class Boss : MonoBehaviour, IDamagable
         }
     }
 
-    private void OnDeath()
+    protected virtual void OnDeath()
     {
         Debug.Log("Boss killed");
         shotManager.DisableAttacking();
         spriteRenderer.sprite = deadSprite;
         bossInteraction.gameObject.SetActive(true);
+        isKilled = true;
         CommandProcessor.SendCommand("Boss.End");
     }
 }

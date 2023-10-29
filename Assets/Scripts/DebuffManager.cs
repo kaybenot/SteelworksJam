@@ -9,8 +9,11 @@ public class DebuffManager : MonoBehaviour
     private Player player;
     public static DebuffManager instance;
     private List<int> debuffList = new() { 0, 1, 2, 3 };
+    public int killCount = 0;
 private void Awake()
     {
+        killCount = 0;
+
         if (instance == null)
         {
             instance = this;
@@ -47,7 +50,7 @@ private void Awake()
                 break;
         }
         debuffList.RemoveAt(randomDebuff);
-
+        killCount++;
     }
     private void SlowPlayerSpeed()
     {

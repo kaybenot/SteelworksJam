@@ -6,6 +6,7 @@ using UnityEngine;
 public class BossState : MonoBehaviour, ICommandListener
 {
     [SerializeField] private BossSpawnManager bossSpawnManager;
+    [SerializeField] private BossSpawnManager lastBossSpawnManager;
     [SerializeField] private GameObject bossAI;
     [SerializeField] private AudioSource music; 
     public string ListenerName { get; set; } = "Boss";
@@ -39,7 +40,8 @@ public class BossState : MonoBehaviour, ICommandListener
             if (command == "Restart")
             {
                 bossSpawnManager.RealDespawnBoss();
-                bossSpawnManager.bossDatas[currentBossIndex].ghostPoint.gameObject.SetActive(true);
+                lastBossSpawnManager.RealDespawnBoss();
+                if (currentBossIndex != -1) bossSpawnManager.bossDatas[currentBossIndex].ghostPoint.gameObject.SetActive(true);
             }
             
             currentBossIndex = -1;
