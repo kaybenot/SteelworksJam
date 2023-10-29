@@ -11,14 +11,25 @@ public class BossShotManager : MonoBehaviour
     private float nextFire = 0.0f;
     private Action OnShoot;
     private Coroutine waitForAttackCoroutine;
+    private bool enableAttacking = false;
 
     public void Init(Action onShoot)
     {
+        enableAttacking = true;
         OnShoot += onShoot;
+    }
+
+    public void DisableAttacking()
+    {
+        enableAttacking = false;
+        OnShoot = null;
     }
 
     private void Update()
     {
+        if (!enableAttacking)
+            return;
+
         if (Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;

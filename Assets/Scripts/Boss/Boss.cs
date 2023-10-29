@@ -7,6 +7,7 @@ public class Boss : MonoBehaviour, IDamagable
 {
     [SerializeField] private int startingHealth;
     [SerializeField] private BossShotManager shotManager;
+    [SerializeField] private BossInteraction bossInteraction;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Sprite attackSprite;
     [SerializeField] private Sprite deadSprite;
@@ -28,8 +29,10 @@ public class Boss : MonoBehaviour, IDamagable
             spriteCoroutine = null;
         }
     }
+
     public void Init()
     {
+        bossInteraction.gameObject.SetActive(false);
         baseSprite = spriteRenderer.sprite;
         currentHealth = startingHealth;
         shotManager.Init(Attack);
@@ -60,8 +63,10 @@ public class Boss : MonoBehaviour, IDamagable
     {
         currentHealth -= damage;
         damageParticles.Play();
+        CommandProcessor.SendCommand($"Canvas.SetEnemyHealth {(float)((float)currentHealth / (float)startingHealth)}");
         if (currentHealth <= 0)
         {
+            CommandProcessor.SendCommand("Canvas.SetEnemyHealth 0");
             OnDeath();
         }
     }
@@ -84,7 +89,9 @@ public class Boss : MonoBehaviour, IDamagable
     private void OnDeath()
     {
         Debug.Log("Boss killed");
+        shotManager.DisableAttacking();
         spriteRenderer.sprite = deadSprite;
+        bossInteraction.gameObject.SetActive(true);
         CommandProcessor.SendCommand("Boss.End");
     }
 }
