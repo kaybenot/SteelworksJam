@@ -15,6 +15,7 @@ public class CanvasManager : MonoBehaviour, ICommandListener
     public Animator badSightAnimator;
     public Animator weaponAnimator;
     public Animator weaponShootingAnimator;
+    public Animator gameOverAnimator;
 
     public Image enemyHealthBarFill;
     public GameObject playerHeartsParent;
@@ -47,6 +48,7 @@ public class CanvasManager : MonoBehaviour, ICommandListener
 
             case "ShowBlood": bloodAnimator.SetTrigger("Show"); break;
             case "HideBlood": bloodAnimator.SetTrigger("Hide"); break;
+            case "PulseBlood": bloodAnimator.SetTrigger("Pulse"); break;
 
             case "ShowBadSight": badSightAnimator.SetTrigger("Show"); break;
             case "HideBadSight": badSightAnimator.SetTrigger("Hide"); break;
@@ -55,6 +57,14 @@ public class CanvasManager : MonoBehaviour, ICommandListener
             case "HideWeapons": weaponAnimator.SetTrigger("Hide"); break;
 
             case "ShootWeapons": weaponShootingAnimator.SetTrigger("Shoot"); break;
+
+            case "GameOver": { 
+                    gameOverAnimator.SetTrigger("Show");
+                    CommandProcessor.SendCommand("PlayerController.Block");
+                    CursorManager.ShowCursor();
+                    Time.timeScale = 0.0f;
+                    break; 
+                }
 
             default:
                 Debug.LogWarning($"Unimplemented command: {command}");

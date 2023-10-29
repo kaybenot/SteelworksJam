@@ -223,7 +223,7 @@ public class Player : MonoBehaviour, IDamagable, ICommandListener
     public void OnDeath()
     {
         Debug.Log("You died!");
-        CommandProcessor.SendCommand("Canvas.DeathScreen"); //TODO: Add controller
+        CommandProcessor.SendCommand("Canvas.GameOver");
     }
 
     public IEnumerator BlockMovementForTime(float time)
