@@ -6,6 +6,7 @@ using UnityEngine;
 public class BossState : MonoBehaviour, ICommandListener
 {
     [SerializeField] private BossSpawnManager bossSpawnManager;
+    [SerializeField] private GameObject bossAI;
     public string ListenerName { get; set; } = "Boss";
 
     public static int CurrentBossIndex => currentBossIndex;
@@ -41,6 +42,7 @@ public class BossState : MonoBehaviour, ICommandListener
             bossSpawnManager.SpawnBoss(index);
             CommandProcessor.SendCommand("Player.EnableGun");
             CommandProcessor.SendCommand("Canvas.ShowWeapons");
+            bossAI.SetActive(false);
             if (parameters.Count > 0)
                 CommandProcessor.SendCommand($"Player.PushPlayer {parameters[0]}");
             else

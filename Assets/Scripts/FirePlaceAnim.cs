@@ -5,8 +5,6 @@ using UnityEngine;
 public class FirePlaceAnim : MonoBehaviour
 {
     [SerializeField] private HeadFollow headfollow;
-
-
     public void SetMode()
     {
         headfollow.SetMode();
