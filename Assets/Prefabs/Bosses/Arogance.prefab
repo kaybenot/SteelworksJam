@@ -82,10 +82,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 100
-  shotManager: {fileID: 0}
+  shotManager: {fileID: 3261573343349354026}
   spriteRenderer: {fileID: 6359645246393295654}
-  attackSprite: {fileID: 0}
-  deadSprite: {fileID: 0}
+  attackSprite: {fileID: 21300000, guid: 653d6089e10b5e24fa9b82ddfb2b2087, type: 3}
+  deadSprite: {fileID: 21300000, guid: 4cd538a96d1d8304493e7e65671442a5, type: 3}
 --- !u!114 &3261573343349354026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3af87d71ce20af6479a7c41e44f3c75a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 6995159109544581430, guid: 260a93dfeaad47b46b3d93ad36c82d48,
+  projectilePrefab: {fileID: 6995159109544581430, guid: 06f8d1f6708d90d4ebcbdb6275599725,
     type: 3}
   degreesBetweenProjectiles: 20
 --- !u!54 &2529313146529110116
