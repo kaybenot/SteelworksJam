@@ -36,6 +36,8 @@ public class Player : MonoBehaviour, IDamagable, ICommandListener
     private float currentFootstepsCooldown = 0.0f;
     private float currentImmunityTime;
 
+    public Rigidbody Rb => rb;
+
     private void Awake()
     {
         CommandProcessor.RegisterListener(this);
@@ -231,10 +233,31 @@ public class Player : MonoBehaviour, IDamagable, ICommandListener
         }
     }
 
+    public void Teleport(Vector3 pos)
+    {
+        transform.position = pos;
+        Head.transform.position = HeadMountPoint.position;
+    }
+
     public void OnDeath()
     {
         Debug.Log("You died!");
-        CommandProcessor.SendCommand("Canvas.GameOver");
+        
+        // CURRENTLY WE ONLY RESPAWN PLAYER AND CURRENT BOSS
+        //CommandProcessor.SendCommand("Canvas.GameOver");
+
+        StartCoroutine(Respawn());
+        CommandProcessor.SendCommand("Boss.Restart");
+    }
+
+    private IEnumerator Respawn()
+    {
+        CommandProcessor.SendCommand("Fade.out");
+        currentHealth = StartingHealth;
+        CommandProcessor.SendCommand($"Canvas.SetPlayerHearts {currentHealth}");
+        yield return new WaitForSeconds(1.5f);
+        Teleport(GameObject.FindGameObjectWithTag("Respawn").transform.position);
+        CommandProcessor.SendCommand("Fade.in");
     }
 
     public IEnumerator BlockMovementForTime(float time)

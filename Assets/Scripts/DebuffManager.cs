@@ -5,6 +5,7 @@ using UnityEngine;
 public class DebuffManager : MonoBehaviour
 {
     [SerializeField] private GameObject ghostAI;
+    [SerializeField] private BossSpawnManager bossSpawnManager;
     private Player player;
     public static DebuffManager instance;
     private List<int> debuffList = new() { 0, 1, 2, 3 };
@@ -28,7 +29,7 @@ private void Awake()
     public void ApplyRandomDebuff()
     {
         ghostAI.SetActive(true);
-
+        bossSpawnManager.SummonRemainingGhosts();
         int randomDebuff = Random.Range(0, debuffList.Count);
         switch (debuffList[randomDebuff])
         {

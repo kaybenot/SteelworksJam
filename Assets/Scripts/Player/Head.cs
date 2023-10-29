@@ -94,4 +94,12 @@ public class HeadFollow : MonoBehaviour, ICommandListener
         CommandProcessor.SendCommand("PlayerController.Unblock");
         CommandProcessor.SendCommand("Fade.out");
     }
+
+    public void Teleport(Transform point)
+    {
+        this.transform.position = point.position;
+        this.transform.rotation = point.rotation;
+        Player.Rb.position = point.position;
+        Player.Rb.rotation = point.rotation;
+    }
 }
