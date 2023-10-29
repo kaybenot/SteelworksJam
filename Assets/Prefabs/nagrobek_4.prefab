@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2983878189883302849}
   - component: {fileID: 7939652824779841502}
   - component: {fileID: 8863554388395558603}
+  - component: {fileID: 1213571506963198881}
   m_Layer: 0
   m_Name: nagrobek_4
   m_TagString: Untagged
@@ -83,3 +84,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1213571506963198881
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4784130541226609180}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.6956248, y: 1.7302942, z: 4.0441847}
+  m_Center: {x: 0, y: 0.8379177, z: -1.0759621}

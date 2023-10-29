@@ -2,6 +2,7 @@ using Cinemachine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Player : MonoBehaviour, IDamagable, ICommandListener
@@ -29,6 +30,9 @@ public class Player : MonoBehaviour, IDamagable, ICommandListener
     private int currentHealth;
     private bool canShoot = false;
     private bool canMove = true;
+    private AudioSource footstepsAudio;
+    public float footstepsCooldown = 1.0f;
+    private float currentFootstepsCooldown = 0.0f;
 
     private void Awake()
     {
@@ -40,6 +44,11 @@ public class Player : MonoBehaviour, IDamagable, ICommandListener
 
         if (Head == null)
             Debug.LogAssertion("There is no assigned Head to Player script!");
+
+        footstepsAudio = GetComponent<AudioSource>();
+        if(footstepsAudio == null)
+            Debug.LogAssertion("Could not locate AudioSource on Player!");
+
     }
 
     public void ProcessCommand(string command, List<string> parameters)
@@ -81,6 +90,15 @@ public class Player : MonoBehaviour, IDamagable, ICommandListener
 
     private void Update()
     {
+        currentFootstepsCooldown += Time.deltaTime;
+        if (rb.velocity.magnitude > 0.5 && currentFootstepsCooldown > footstepsCooldown)
+        {
+            footstepsAudio.pitch = UnityEngine.Random.Range(0.95f, 1.05f);
+            footstepsAudio.panStereo = -footstepsAudio.panStereo;
+            footstepsAudio.Play();
+            currentFootstepsCooldown = 0.0f;
+        }
+
         RaycastHit hit;
         LayerMask mask = LayerMask.GetMask("Interactable");
         if (Physics.Raycast(Head.transform.position, Head.transform.forward, out hit, maxInteractDistance, mask))

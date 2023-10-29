@@ -6,8 +6,9 @@ public class ShotgunShot : BaseBossShot
 {
     [SerializeField] private Projectile projectilePrefab;
     [SerializeField] private float shotRangeDegrees = 120f;
-    [SerializeField] private int shotAmount = 20;
+    [SerializeField] private int shotAmount = 1;//for test
     [SerializeField] private float shotSpeed = 1f;
+    [SerializeField] private Animator animator;
 
     public override Projectile ProjectilePrefab { get => projectilePrefab; }
 
@@ -31,5 +32,6 @@ public class ShotgunShot : BaseBossShot
 
             projectile.Shoot(playerDirection);
         }
+        animator.SetTrigger("Start");
     }
 }

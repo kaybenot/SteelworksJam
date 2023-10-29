@@ -6,7 +6,7 @@ public class ShootByDegrees : BaseBossShot
 {
     [SerializeField] private Projectile projectilePrefab;
     [SerializeField] private float degreesBetweenProjectiles = 30f;
-
+    
     public override Projectile ProjectilePrefab { get => projectilePrefab;  }
 
     public override void ShootProjectiles(Transform spawnPoint = null)
