@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,8 @@ public class BossState : MonoBehaviour, ICommandListener
 {
     [SerializeField] private BossSpawnManager bossSpawnManager;
     public string ListenerName { get; set; } = "Boss";
+
+    private int currentBossIndex = -1;
 
     void Awake()
     {
@@ -20,6 +23,11 @@ public class BossState : MonoBehaviour, ICommandListener
             CommandProcessor.SendCommand("Player.DisableGun");
             CommandProcessor.SendCommand("Canvas.HideWeapons");
             CommandProcessor.SendCommand("Canvas.HideEnemyHealth");
+            CommandProcessor.SendCommand("Canvas.HidePlayerHealth");
+            if (currentBossIndex != -1)
+            {
+                CommandProcessor.SendCommand($"ArenaManager.Hide {currentBossIndex}");
+            }
         }
         else if (IsInteger(command, out int index))
         {
@@ -32,6 +40,9 @@ public class BossState : MonoBehaviour, ICommandListener
             else
                 CommandProcessor.SendCommand("Player.PushPlayer");
             CommandProcessor.SendCommand("Canvas.ShowEnemyHealth");
+            CommandProcessor.SendCommand("Canvas.ShowPlayerHealth");
+            CommandProcessor.SendCommand($"ArenaManager.Show {index}");
+            currentBossIndex = index;
         }
     }
 

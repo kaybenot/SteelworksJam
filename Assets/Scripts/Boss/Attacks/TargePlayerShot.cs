@@ -37,8 +37,8 @@ public class TargePlayerShot : BaseBossShot
     {
         while (amount > 0)
         {
-            var projectile = Instantiate(projectilePrefab, spawnPoint);
-            projectile.transform.localPosition = Vector3.zero;
+            var projectile = Instantiate(projectilePrefab);
+            projectile.transform.position = spawnPoint.position;
 
             Vector3 eulerAngles = Quaternion.LookRotation(target.position - spawnPoint.position).eulerAngles;
 
