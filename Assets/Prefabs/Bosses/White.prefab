@@ -19962,7 +19962,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18d8188202f84894b8d58df8927cb5bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 2.2
+  fireRate: 3
   shootingTypes:
   - {fileID: -6111466353973168387}
   - {fileID: 1206200586741241866}
@@ -19978,7 +19978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a78a20eb6acd7346b4b0e570808367a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WaitForAttack: 0.2
+  WaitForAttack: 1
   projectilePrefab: {fileID: 6995159109544581430, guid: 260a93dfeaad47b46b3d93ad36c82d48,
     type: 3}
   shotRangeDegrees: 160
@@ -19996,12 +19996,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 797f1a3094ea1f449893e511e3c9bbdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WaitForAttack: 0.2
+  WaitForAttack: 1
   projectilePrefab: {fileID: 6995159109544581430, guid: 260a93dfeaad47b46b3d93ad36c82d48,
     type: 3}
   projectileAmount: 10
   timeBetweenShoots: 0.2
   customSpeed: 15
+  randomSpread: 0
 --- !u!54 &2529313146529110116
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -20062,7 +20063,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 667550cd9bb8efd42aa4b349f6959e72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 100
+  startingHealth: 200
   shotManager: {fileID: 3261573343349354026}
   bossInteraction: {fileID: 296752686391407806}
   spriteRenderer: {fileID: 6359645246393295654}
