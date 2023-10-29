@@ -4,7 +4,7 @@ using UnityEngine;
 
 enum DialogType
 {
-    TYPE_0, TYPE_1, TYPE_2, TYPE_3
+    TYPE_0, TYPE_1, TYPE_2, TYPE_3, TYPE_4
 }
 
 [Serializable]
@@ -36,6 +36,8 @@ public class DialogManager : MonoBehaviour
     void TestType2() { PlayType(DialogType.TYPE_2); }
     [ContextMenu("Test Type 3")]
     void TestType3() { PlayType(DialogType.TYPE_3); }
+    [ContextMenu("Test Type 4")]
+    void TestType4() { PlayType(DialogType.TYPE_4); }
 
 
     void PlayType(DialogType type)
@@ -61,7 +63,7 @@ public class DialogManager : MonoBehaviour
         if (info.played != 0)
         {
             Debug.Log("Dialog has played already!");
-            return;
+            //return;
         }
 
         if(info.dialogs.Length == 0)
