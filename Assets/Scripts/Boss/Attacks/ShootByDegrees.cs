@@ -6,7 +6,8 @@ public class ShootByDegrees : BaseBossShot
 {
     [SerializeField] private Projectile projectilePrefab;
     [SerializeField] private float degreesBetweenProjectiles = 30f;
-    
+    [SerializeField] private float projectileSpeed = 20f;
+
     public override Projectile ProjectilePrefab { get => projectilePrefab;  }
 
     public override void ShootProjectiles(Transform spawnPoint = null)
@@ -23,6 +24,7 @@ public class ShootByDegrees : BaseBossShot
             Vector3 direction = Quaternion.Euler(eulerAngles) * Vector3.forward;
             direction = direction.normalized;
 
+            projectile.Speed = projectileSpeed;
             projectile.Shoot(direction);
         }
     }

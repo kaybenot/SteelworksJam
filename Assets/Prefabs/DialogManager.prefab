@@ -48,12 +48,6 @@ MonoBehaviour:
   text: {fileID: 0}
   dialogs:
   - dialogs:
-    - {fileID: 11400000, guid: 7c76cbb3cec5112458362aac3e2ec741, type: 2}
-    - {fileID: 11400000, guid: c8b7a66e23b3a484ebf355f1946e99d1, type: 2}
-    - {fileID: 11400000, guid: 3ecdd3186abd9f34cbff4bf8c79f06ab, type: 2}
-    - {fileID: 11400000, guid: f860f4a6e890f934e88c9311091048ef, type: 2}
-    played: 0
-  - dialogs:
     - {fileID: 11400000, guid: 4b6b0eed1dd438e439a988382996d883, type: 2}
     - {fileID: 11400000, guid: d1174ec3b3c4a1a4a96a7eec2245733b, type: 2}
     - {fileID: 11400000, guid: b10af3ebbd8885346b29e7a403f6c39d, type: 2}
@@ -72,11 +66,6 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 9abc8f1e0de10de4b877b0c067e2abfc, type: 2}
     - {fileID: 11400000, guid: 1f6336b02e7a37543882d8dfe05586ed, type: 2}
     - {fileID: 11400000, guid: 9692215a5142eea4f9ec69f57decb243, type: 2}
-    played: 0
-  - dialogs:
-    - {fileID: 11400000, guid: 5edc0c31f95732d4abb13b6eec464483, type: 2}
-    - {fileID: 11400000, guid: 198ffa51aa7b27d498d2d7e9ed9dddc2, type: 2}
-    - {fileID: 11400000, guid: e0b85c69232e14d408269462b5d9e1f8, type: 2}
     played: 0
 --- !u!82 &920395062310534814
 AudioSource:

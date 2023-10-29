@@ -221,7 +221,7 @@ public class Player : MonoBehaviour, IDamagable, ICommandListener
 
             currentHealth -= damage;
             CommandProcessor.SendCommand($"Canvas.SetPlayerHearts {currentHealth}");
-            CommandProcessor.SendCommand($"Canvas.ShowBlood");
+            CommandProcessor.SendCommand($"Canvas.PulseBlood");
             if (currentHealth <= 0)
             {
                 CommandProcessor.SendCommand($"Canvas.SetPlayerHearts 0");
