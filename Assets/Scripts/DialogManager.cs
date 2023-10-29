@@ -88,7 +88,7 @@ public class DialogManager : MonoBehaviour, ICommandListener
 
     public void PlayNext()
     {
-        PlayType((DialogType)(dialogsPlayed+++1));
+        PlayType((DialogType)(dialogsPlayed++));
     }
     public void LoadNextScene()
     {

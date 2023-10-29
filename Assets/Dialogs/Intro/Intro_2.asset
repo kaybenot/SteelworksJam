@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Intro_2
   m_EditorClassIdentifier: 
   text: As the falling leafs leave the crown of trees, peasants gather at Forefathers'
-    Eve. With sorcerer's with and peoples' grace, they guide the spirits to the holy
+    Eve. With sorcerer's wit and peoples' grace, they guide the spirits to the holy
     place.
   clip: {fileID: 8300000, guid: 6c9a6e0ff5e40fa4682b72b3e6649b8d, type: 3}
