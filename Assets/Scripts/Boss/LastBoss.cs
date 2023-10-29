@@ -29,6 +29,12 @@ public class LastBoss : Boss
 
     public void Update()
     {
+        if (isKilled)
+        {
+            return;
+
+        }
+
         if (Time.time > nextSwitch)
         {
             nextSwitch = Time.time + timeToSwitch;
@@ -58,6 +64,16 @@ public class LastBoss : Boss
         {
             action.Init(this);
         }
+    }
+
+    protected override void OnDeath()
+    {
+        Debug.Log("Last boss killed");
+        shotManager.DisableAttacking();
+        spriteRenderer.sprite = deadSprite;
+        bossInteraction.gameObject.SetActive(true);
+        isKilled = true;
+        CommandProcessor.SendCommand("LastBoss.End");
     }
 
     [Serializable]

@@ -5059,7 +5059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18d8188202f84894b8d58df8927cb5bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 2.2
+  fireRate: 2.5
   shootingTypes:
   - {fileID: 7921236727124057610}
   - {fileID: 6232733825898180861}
@@ -5075,7 +5075,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a78a20eb6acd7346b4b0e570808367a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WaitForAttack: 0.2
+  WaitForAttack: 1
   projectilePrefab: {fileID: 6995159109544581430, guid: 260a93dfeaad47b46b3d93ad36c82d48,
     type: 3}
   shotRangeDegrees: 160
@@ -5093,7 +5093,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 797f1a3094ea1f449893e511e3c9bbdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WaitForAttack: 0.2
+  WaitForAttack: 1
   projectilePrefab: {fileID: 6995159109544581430, guid: 260a93dfeaad47b46b3d93ad36c82d48,
     type: 3}
   projectileAmount: 10
@@ -10609,7 +10609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af6c59df51b5851478cadfec01a3e418, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 1000
+  startingHealth: 100
   shotManager: {fileID: 0}
   bossInteraction: {fileID: 21089220459229025}
   spriteRenderer: {fileID: 6359645246393295654}
@@ -10651,7 +10651,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &2693454611322189610
@@ -10871,7 +10871,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18d8188202f84894b8d58df8927cb5bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 4
+  fireRate: 6
   shootingTypes:
   - {fileID: 269631949800859274}
   - {fileID: 3418939405309693671}
@@ -10887,7 +10887,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 797f1a3094ea1f449893e511e3c9bbdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WaitForAttack: 1
+  WaitForAttack: 2
   projectilePrefab: {fileID: 6995159109544581430, guid: 06f8d1f6708d90d4ebcbdb6275599725,
     type: 3}
   projectileAmount: 100
@@ -10906,7 +10906,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3af87d71ce20af6479a7c41e44f3c75a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WaitForAttack: 1
+  WaitForAttack: 2
   projectilePrefab: {fileID: 6995159109544581430, guid: 06f8d1f6708d90d4ebcbdb6275599725,
     type: 3}
   degreesBetweenProjectiles: 5
@@ -21115,7 +21115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaitForAttack: 0
-  projectilePrefab: {fileID: 6995159109544581430, guid: 260a93dfeaad47b46b3d93ad36c82d48,
+  projectilePrefab: {fileID: 6995159109544581430, guid: 1d7a027513c63314db316a77a822eefb,
     type: 3}
   projectileAmount: 10
   timeBetweenShoots: 0.3
@@ -21134,7 +21134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaitForAttack: 0
-  projectilePrefab: {fileID: 6995159109544581430, guid: 260a93dfeaad47b46b3d93ad36c82d48,
+  projectilePrefab: {fileID: 6995159109544581430, guid: 1d7a027513c63314db316a77a822eefb,
     type: 3}
   degreesBetweenProjectiles: 20
   projectileSpeed: 30
@@ -21151,7 +21151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaitForAttack: 0
-  projectilePrefab: {fileID: 6995159109544581430, guid: 260a93dfeaad47b46b3d93ad36c82d48,
+  projectilePrefab: {fileID: 6995159109544581430, guid: 1d7a027513c63314db316a77a822eefb,
     type: 3}
   shotRangeDegrees: 360
   shotAmount: 12

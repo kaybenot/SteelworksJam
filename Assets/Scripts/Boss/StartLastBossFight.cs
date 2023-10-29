@@ -28,7 +28,6 @@ public class StartLastBossFight : MonoBehaviour, ICommandListener
         }
     }
 
-    [ContextMenu("Test")]
     public void StartLastFight()
     {
         headManager.Teleport(playerSpawnPoint);
