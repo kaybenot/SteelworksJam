@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8028176183456482369}
   - component: {fileID: 7381059582523797795}
   - component: {fileID: 5842831342803769616}
+  - component: {fileID: 5230158851441230580}
   m_Layer: 0
   m_Name: dynia_3
   m_TagString: Untagged
@@ -83,3 +84,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!135 &5230158851441230580
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2425734070057661338}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.9812904
+  m_Center: {x: 0.0015282929, y: 1.0841708, z: 0.0015268028}

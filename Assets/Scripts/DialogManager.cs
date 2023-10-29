@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -14,20 +15,25 @@ public class DialogTypeInfo
     public int played = 0;
 }
 
-public class DialogManager : MonoBehaviour
+public class DialogManager : MonoBehaviour, ICommandListener
 {
     public TextMeshProUGUI text;
     public DialogTypeInfo[] dialogs;
     bool isPlaying = false;
     int currentType = -1;
+    private int dialogsPlayed = 0;
 
     private AudioSource audioSource;
+
+    public string ListenerName { get; set; } = "Dialog";
 
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
     }
 
+    [ContextMenu("Play Next")]
+    void TestPlayNext() { PlayNext(); }
     [ContextMenu("Test Type 0")]
     void TestType0() { PlayType(DialogType.TYPE_0); }
     [ContextMenu("Test Type 1")]
@@ -63,7 +69,7 @@ public class DialogManager : MonoBehaviour
         if (info.played != 0)
         {
             Debug.Log("Dialog has played already!");
-            //return;
+            return;
         }
 
         if(info.dialogs.Length == 0)
@@ -77,6 +83,11 @@ public class DialogManager : MonoBehaviour
         currentType = typeId;
         info.played = 1;
         isPlaying = true;
+    }
+
+    void PlayNext()
+    {
+        PlayType((DialogType)(dialogsPlayed+++1));
     }
 
     void SetDialog(DialogObjectSO dialog)
@@ -106,6 +117,19 @@ public class DialogManager : MonoBehaviour
             {
                 SetDialog(info.dialogs[info.played++]);
             }
+        }
+    }
+
+    public void ProcessCommand(string command, List<string> parameters)
+    {
+        switch (command)
+        {
+            case "Next":
+                PlayNext();
+                break;
+            default:
+                Debug.LogWarning($"Unimplemented command: {command}");
+                break;
         }
     }
 }
