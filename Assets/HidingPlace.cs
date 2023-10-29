@@ -14,6 +14,7 @@ public class HidingPlace : MonoBehaviour, IInteractable
     {
         CommandProcessor.SendCommand($"Head.Hide", $"{hidePoint.position.ToString()};{hidePoint.rotation.eulerAngles.ToString()}");
         CommandProcessor.SendCommand("PlayerController.Block");
+        CommandProcessor.SendCommand("Canvas.ShowVignette");
         // Play sound
     }
 
@@ -22,5 +23,6 @@ public class HidingPlace : MonoBehaviour, IInteractable
     {
         CommandProcessor.SendCommand("Head.Follow");
         CommandProcessor.SendCommand("PlayerController.Unblock");
+        CommandProcessor.SendCommand("Canvas.HideVignette");
     }
 }

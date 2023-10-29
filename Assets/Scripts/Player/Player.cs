@@ -79,9 +79,6 @@ public class Player : MonoBehaviour, IDamagable, ICommandListener
         LayerMask mask = LayerMask.GetMask("Interactable");
         if (Physics.Raycast(Head.transform.position, Head.transform.forward, out hit, maxInteractDistance, mask))
         {
-            // Get Type
-            // Set Hint Type
-
             // Show Hint
             CommandProcessor.SendCommand("Canvas.ShowHint");
         }
@@ -128,6 +125,8 @@ public class Player : MonoBehaviour, IDamagable, ICommandListener
         if(hidingPlace != null)
         {
             hidingPlace.Unhide();
+            hidingPlace = null;
+            return;
         }
 
         RaycastHit hit;
@@ -138,7 +137,6 @@ public class Player : MonoBehaviour, IDamagable, ICommandListener
 
             hidingPlace = hit.collider.gameObject.GetComponent<HidingPlace>();
         }
-        
     }
 
     public void Shoot()
