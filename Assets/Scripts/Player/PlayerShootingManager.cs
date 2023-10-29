@@ -27,6 +27,7 @@ public class PlayerShootingManager : MonoBehaviour
             leftBullet.Shoot(forward);
             rightBullet.Shoot(forward);
             CommandProcessor.SendCommand("Canvas.ShootWeapons");
+            AudioManager.instance.PlaySFX(AudioClipType.SFX);
         }
     }
 }

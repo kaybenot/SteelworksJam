@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028377, g: 0.22571409, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1002,14 +1002,54 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 580915660966173471, guid: 18addd4499e602a4bac8d2049befaa95,
         type: 3}
+      propertyPath: sfxDatabase.clipDatas.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 580915660966173471, guid: 18addd4499e602a4bac8d2049befaa95,
+        type: 3}
+      propertyPath: musicDatabase.clipDatas.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 580915660966173471, guid: 18addd4499e602a4bac8d2049befaa95,
+        type: 3}
+      propertyPath: sfxDatabase.clipDatas.Array.data[1].clipType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 580915660966173471, guid: 18addd4499e602a4bac8d2049befaa95,
+        type: 3}
+      propertyPath: sfxDatabase.clipDatas.Array.data[1].clips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 580915660966173471, guid: 18addd4499e602a4bac8d2049befaa95,
+        type: 3}
       propertyPath: musicDatabase.clipDatas.Array.data[0].clips.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 580915660966173471, guid: 18addd4499e602a4bac8d2049befaa95,
         type: 3}
+      propertyPath: musicDatabase.clipDatas.Array.data[2].clips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 580915660966173471, guid: 18addd4499e602a4bac8d2049befaa95,
+        type: 3}
+      propertyPath: sfxDatabase.clipDatas.Array.data[0].clips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6d28480594bb63c45b5fb11d17bc113b, type: 3}
+    - target: {fileID: 580915660966173471, guid: 18addd4499e602a4bac8d2049befaa95,
+        type: 3}
+      propertyPath: sfxDatabase.clipDatas.Array.data[1].clips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 07eb1cd196bdf18478474c235f164fbb, type: 3}
+    - target: {fileID: 580915660966173471, guid: 18addd4499e602a4bac8d2049befaa95,
+        type: 3}
       propertyPath: musicDatabase.clipDatas.Array.data[0].clips.Array.data[0]
       value: 
       objectReference: {fileID: 8300000, guid: 94e931f913e686f4e92f0e778ee98e1d, type: 3}
+    - target: {fileID: 580915660966173471, guid: 18addd4499e602a4bac8d2049befaa95,
+        type: 3}
+      propertyPath: musicDatabase.clipDatas.Array.data[2].clips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: a4e936879776fae4c8ef753309feee0f, type: 3}
     - target: {fileID: 2628252081301245884, guid: 18addd4499e602a4bac8d2049befaa95,
         type: 3}
       propertyPath: ghostAI
