@@ -5041,6 +5041,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossGhostIndex: 0
+  pushSpeed: 5
   canGoToTheFirePlace: 0
 --- !u!65 &6281889534596228465
 BoxCollider:
