@@ -24,7 +24,6 @@ public class BossShotManager : MonoBehaviour
             Shoot();
         }
     }
-
     private void Shoot()
     {
         if (shootingTypes != null || shootingTypes.Count != 0)

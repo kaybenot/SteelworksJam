@@ -33,7 +33,7 @@ public class BossSpawnManager : MonoBehaviour
     {
         if(currentBoss != null)
         {
-            Destroy(currentBoss.gameObject);
+            //Destroy(currentBoss.gameObject);
             currentBossData.isKilled = true;
             currentBoss = null;
             currentBossData = null;
