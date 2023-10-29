@@ -5,23 +5,23 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour, IDamagable
 {
-    [SerializeField] private int startingHealth;
-    [SerializeField] private BossShotManager shotManager;
-    [SerializeField] private BossInteraction bossInteraction;
-    [SerializeField] private SpriteRenderer spriteRenderer;
-    [SerializeField] private Sprite attackSprite;
-    [SerializeField] private Sprite deadSprite;
-    [SerializeField] private ParticleSystem damageParticles;
+    [SerializeField] protected int startingHealth;
+    [SerializeField] protected BossShotManager shotManager;
+    [SerializeField] protected BossInteraction bossInteraction;
+    [SerializeField] protected SpriteRenderer spriteRenderer;
+    [SerializeField] protected Sprite attackSprite;
+    [SerializeField] protected Sprite deadSprite;
+    [SerializeField] protected ParticleSystem damageParticles;
 
     [Header("Boss speciala actions")]
-    [SerializeField] private List<BaseBossAction> specialActions;
+    [SerializeField] protected List<BaseBossAction> specialActions;
 
-    private Sprite baseSprite;
-    private int currentHealth;
-    private Coroutine spriteCoroutine;
-    private Transform spawnPoint;
-    private BossSpawnManager spawnManager;
-    private int ghostBossIndex;
+    protected Sprite baseSprite;
+    protected int currentHealth;
+    protected Coroutine spriteCoroutine;
+    protected Transform spawnPoint;
+    protected BossSpawnManager spawnManager;
+    protected int ghostBossIndex;
 
     public Transform SpawnPoint => spawnPoint;
     public int GhostBossIndex => ghostBossIndex;
@@ -36,7 +36,7 @@ public class Boss : MonoBehaviour, IDamagable
         }
     }
 
-    public void Init(Transform spawnPoint, BossSpawnManager spawnManager, int ghostBossIndex)
+    public virtual void Init(Transform spawnPoint, BossSpawnManager spawnManager, int ghostBossIndex)
     {
         this.spawnManager = spawnManager;
         this.spawnPoint = spawnPoint;
