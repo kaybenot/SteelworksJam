@@ -10,4 +10,9 @@ public class SceneSwapper : MonoBehaviour
         Time.timeScale = 1.0f;
         SceneManager.LoadScene(0);
     }
+
+    public void Unpause()
+    {
+        CommandProcessor.SendCommand("Canvas.Unpause");
+    }
 }
