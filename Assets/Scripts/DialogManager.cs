@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 enum DialogType
 {
@@ -85,9 +86,13 @@ public class DialogManager : MonoBehaviour, ICommandListener
         isPlaying = true;
     }
 
-    void PlayNext()
+    public void PlayNext()
     {
         PlayType((DialogType)(dialogsPlayed+++1));
+    }
+    public void LoadNextScene()
+    {
+        SceneManager.LoadScene(2);
     }
 
     void SetDialog(DialogObjectSO dialog)
