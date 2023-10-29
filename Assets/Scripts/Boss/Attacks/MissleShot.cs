@@ -59,6 +59,9 @@ public class MissleShot : BaseBossShot
         for (int i = 0; i < shotAmount;i++)
         {
             var projectile = currentProjectiles[i];
+            
+            if (projectile == null)
+                continue;
 
             Vector3 eulerAngles = Quaternion.LookRotation(target.position - projectile.transform.position).eulerAngles;
 
