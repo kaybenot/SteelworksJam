@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 3968954565768407050}
   - component: {fileID: 2529313146529110116}
   - component: {fileID: 2693454611322189610}
+  - component: {fileID: 799913831557290406}
   m_Layer: 0
   m_Name: Arogance
   m_TagString: Enemy
@@ -164,6 +165,25 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.25, y: 2.25, z: 2.25}
   m_Center: {x: 0, y: 1.25, z: 0}
+--- !u!114 &799913831557290406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5958198136251886435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58b8bca5aa6ee854a9515ad2df02ec03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 6995159109544581430, guid: 06f8d1f6708d90d4ebcbdb6275599725,
+    type: 3}
+  shotRangeDegrees: 120
+  shotAmount: 20
+  targetPlayerInSeconds: 2
+  aimBetweenShots: 0.125
+  newSpeed: 3
 --- !u!1 &7569958831027443927
 GameObject:
   m_ObjectHideFlags: 0

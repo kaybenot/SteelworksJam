@@ -41,12 +41,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2451101499333616562}
-  - component: {fileID: 9178148596377676956}
   - component: {fileID: 3261573343349354026}
-  - component: {fileID: 3968954565768407050}
   - component: {fileID: -6111466353973168387}
   - component: {fileID: 2529313146529110116}
   - component: {fileID: 2693454611322189610}
+  - component: {fileID: 2365256871343184221}
+  - component: {fileID: 7660722506738671867}
   m_Layer: 0
   m_Name: White
   m_TagString: Enemy
@@ -70,23 +70,6 @@ Transform:
   - {fileID: 6832275184355000093}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9178148596377676956
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5958198136251886435}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 667550cd9bb8efd42aa4b349f6959e72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingHealth: 100
-  shotManager: {fileID: 3261573343349354026}
-  spriteRenderer: {fileID: 6359645246393295654}
-  attackSprite: {fileID: 21300000, guid: 32223a7daa390a94d8dd6e9442095ed5, type: 3}
-  deadSprite: {fileID: 21300000, guid: 1e7fe0b91141b434ab5cbb76a0158eca, type: 3}
 --- !u!114 &3261573343349354026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,21 +85,6 @@ MonoBehaviour:
   fireRate: 2
   shootingTypes:
   - {fileID: -6111466353973168387}
---- !u!114 &3968954565768407050
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5958198136251886435}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3af87d71ce20af6479a7c41e44f3c75a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 6995159109544581430, guid: 260a93dfeaad47b46b3d93ad36c82d48,
-    type: 3}
-  degreesBetweenProjectiles: 30
 --- !u!114 &-6111466353973168387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,6 +102,7 @@ MonoBehaviour:
   shotRangeDegrees: 120
   shotAmount: 20
   shotSpeed: 10
+  animator: {fileID: 3781034454513078438}
 --- !u!54 &2529313146529110116
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -182,6 +151,38 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.4, y: 2.5, z: 1.4}
   m_Center: {x: 0, y: 1.35, z: 0}
+--- !u!114 &2365256871343184221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5958198136251886435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3af87d71ce20af6479a7c41e44f3c75a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 6995159109544581430, guid: 260a93dfeaad47b46b3d93ad36c82d48,
+    type: 3}
+  degreesBetweenProjectiles: 30
+--- !u!114 &7660722506738671867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5958198136251886435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 667550cd9bb8efd42aa4b349f6959e72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 100
+  shotManager: {fileID: 3261573343349354026}
+  spriteRenderer: {fileID: 6359645246393295654}
+  attackSprite: {fileID: 21300000, guid: 32223a7daa390a94d8dd6e9442095ed5, type: 3}
+  deadSprite: {fileID: 21300000, guid: 1e7fe0b91141b434ab5cbb76a0158eca, type: 3}
 --- !u!1 &7569958831027443927
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,6 +194,7 @@ GameObject:
   - component: {fileID: 4415096750289117998}
   - component: {fileID: 6359645246393295654}
   - component: {fileID: 7424797332688830965}
+  - component: {fileID: 3781034454513078438}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Enemy
@@ -281,3 +283,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xAngle: 0
   useXAngle: 1
+--- !u!95 &3781034454513078438
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7569958831027443927}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 86e84c767e16e604a90afa7052e2048d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
