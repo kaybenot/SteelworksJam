@@ -17,6 +17,7 @@ public class BossShotManager : MonoBehaviour
     {
         enableAttacking = true;
         OnShoot += onShoot;
+        nextFire = Time.time + fireRate;
     }
 
     public void DisableAttacking()

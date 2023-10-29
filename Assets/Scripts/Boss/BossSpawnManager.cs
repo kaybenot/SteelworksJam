@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class BossSpawnManager : MonoBehaviour
@@ -26,17 +27,28 @@ public class BossSpawnManager : MonoBehaviour
         currentBoss.transform.localPosition = Vector3.zero;
         currentBoss.transform.localRotation = Quaternion.identity;
         currentBoss.transform.SetParent(this.transform);
-        currentBoss.Init(currentBossData.ghostPoint.SpawnPositionPoint);
+        currentBoss.Init(currentBossData.ghostPoint.SpawnPositionPoint, this, bossIndex);
     }
 
     public void DespawnBoss()
     {
         if(currentBoss != null)
         {
-            //Destroy(currentBoss.gameObject);
             currentBossData.isKilled = true;
             currentBoss = null;
             currentBossData = null;
+        }
+    }
+
+    public void SpawnGhost(Boss boss, int bossIndex)
+    {
+        var data = bossDatas[bossIndex];
+        if (data != null)
+        {
+            Destroy(boss.gameObject);
+            data.ghostPoint.transform.position = boss.transform.position;
+            data.ghostPoint.gameObject.SetActive(true);
+            data.ghostPoint.GoToTheFireplace();
         }
     }
 }

@@ -20,8 +20,11 @@ public class Boss : MonoBehaviour, IDamagable
     private int currentHealth;
     private Coroutine spriteCoroutine;
     private Transform spawnPoint;
+    private BossSpawnManager spawnManager;
+    private int ghostBossIndex;
 
     public Transform SpawnPoint => spawnPoint;
+    public int GhostBossIndex => ghostBossIndex;
 
     private void OnDestroy()
     {
@@ -33,9 +36,12 @@ public class Boss : MonoBehaviour, IDamagable
         }
     }
 
-    public void Init(Transform spawnPoint)
+    public void Init(Transform spawnPoint, BossSpawnManager spawnManager, int ghostBossIndex)
     {
+        this.spawnManager = spawnManager;
         this.spawnPoint = spawnPoint;
+        this.ghostBossIndex = ghostBossIndex;
+        bossInteraction.Init(spawnManager, this);
         bossInteraction.gameObject.SetActive(false);
         baseSprite = spriteRenderer.sprite;
         currentHealth = startingHealth;
