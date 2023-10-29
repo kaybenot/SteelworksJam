@@ -94,6 +94,10 @@ public class DialogManager : MonoBehaviour, ICommandListener
     {
         SceneManager.LoadScene(2);
     }
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
 
     void SetDialog(DialogObjectSO dialog)
     {
