@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BossSpawnManager : MonoBehaviour
 {
-    [SerializeField] private List<BossData> bossDatas;
+    public List<BossData> bossDatas;
 
     private Boss currentBoss; 
     private BossData currentBossData;
@@ -30,6 +30,16 @@ public class BossSpawnManager : MonoBehaviour
         currentBoss.Init(currentBossData.ghostPoint.SpawnPositionPoint, this, bossIndex);
     }
 
+    public void RealDespawnBoss()
+    {
+        if (currentBoss == null)
+            return;
+        
+        Destroy(currentBoss.gameObject);
+        currentBoss = null;
+        currentBossData = null;
+    }
+
     public void DespawnBoss()
     {
         if(currentBoss != null)
@@ -39,7 +49,15 @@ public class BossSpawnManager : MonoBehaviour
             currentBossData = null;
         }
     }
-
+    public void SummonRemainingGhosts()
+    {
+        foreach (BossData ghosts in bossDatas)
+        {
+            if (ghosts.isKilled)
+                continue;
+            else ghosts.ghostPoint.gameObject.SetActive(false);
+        }
+    }
     public void SpawnGhost(Boss boss, int bossIndex)
     {
         var data = bossDatas[bossIndex];

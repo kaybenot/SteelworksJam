@@ -9,7 +9,9 @@ public class BossState : MonoBehaviour, ICommandListener
     [SerializeField] private GameObject bossAI;
     public string ListenerName { get; set; } = "Boss";
 
-    private int currentBossIndex = -1;
+    public static int CurrentBossIndex => currentBossIndex;
+
+    private static int currentBossIndex = -1;
 
     void Awake()
     {
@@ -18,9 +20,10 @@ public class BossState : MonoBehaviour, ICommandListener
 
     public void ProcessCommand(string command, List<string> parameters)
     {
-        if (command == "End")
+        if (command is "End" or "Restart")
         {
-            EndFight();
+            if (command == "End")
+                EndFight();
             CommandProcessor.SendCommand("Player.DisableGun");
             CommandProcessor.SendCommand("Canvas.HideWeapons");
             CommandProcessor.SendCommand("Canvas.HideEnemyHealth");
@@ -29,6 +32,14 @@ public class BossState : MonoBehaviour, ICommandListener
             {
                 CommandProcessor.SendCommand($"ArenaManager.Hide {currentBossIndex}");
             }
+
+            if (command == "Restart")
+            {
+                bossSpawnManager.RealDespawnBoss();
+                bossSpawnManager.bossDatas[currentBossIndex].ghostPoint.gameObject.SetActive(true);
+            }
+            
+            currentBossIndex = -1;
         }
         else if (IsInteger(command, out int index))
         {
