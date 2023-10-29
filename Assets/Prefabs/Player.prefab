@@ -81,9 +81,10 @@ MonoBehaviour:
   JumpHeight: 0.5
   MovementSpeed: 5
   LookSensitivity: 0.1
-  StartingHealth: 50
+  StartingHealth: 5
   ShootingManager: {fileID: 6992159876934121597}
   maxInteractDistance: 3
+  immunityTime: 0.25
   hidingPlace: {fileID: 0}
   footstepsCooldown: 0.7
 --- !u!114 &4103424943334857891

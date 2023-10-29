@@ -7,11 +7,15 @@ using static AIState;
 public class BossGhost : MonoBehaviour, IInteractable
 {
     [SerializeField] private int bossGhostIndex;
-    [SerializeField] private float pushSpeed = 5f;
+    [SerializeField] private Transform spawnPositionPoint;
+
     private Player player;
     private Transform fireplace;
     public bool canGoToTheFirePlace;
     private NavMeshAgent agent;
+
+    public Transform SpawnPositionPoint => spawnPositionPoint;
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();   
@@ -20,9 +24,10 @@ public class BossGhost : MonoBehaviour, IInteractable
         if (player == null)
             Debug.LogAssertion("PlayerController could not find Player script!");
     }
+
     public void Use(Player player)
     {
-        CommandProcessor.SendCommand($"Boss.{bossGhostIndex} {pushSpeed}");
+        CommandProcessor.SendCommand($"Boss.{bossGhostIndex}");
         gameObject.SetActive(false);
     }
 
