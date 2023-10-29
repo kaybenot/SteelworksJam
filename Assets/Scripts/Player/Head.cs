@@ -16,27 +16,27 @@ public class HeadFollow : MonoBehaviour, ICommandListener
 {
     [SerializeField]
     private Player Player;
-    [SerializeField]
-    private Transform cutSceneTransform;
-    public MODE mode = MODE.FOLLOW;
+    public MODE mode = MODE.NEWGAME;
 
     public float transitionSpeed = 1.0f;
     public float rotationSpeed = 1.0f;
     private Vector3 hidePosition;
     private Quaternion hideRotation;
-
+    private Animator animator;
     public string ListenerName { get; set; } = "Head";
 
     private void Awake()
     {
+        CommandProcessor.SendCommand("PlayerController.Block");
         CommandProcessor.RegisterListener(this);
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
         if (mode == MODE.NEWGAME)
         {
-            transform.position = Vector3.Lerp(transform.position, cutSceneTransform.position, transitionSpeed * Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, Player.HeadMountPoint.transform.position, transitionSpeed * Time.deltaTime);
         }
         else if (mode == MODE.FOLLOW)
         {
@@ -86,5 +86,12 @@ public class HeadFollow : MonoBehaviour, ICommandListener
                 Debug.LogWarning($"Unimplemented command: {command}");
                 break;
         }
+    }
+    public void SetMode()
+    {
+        mode = MODE.FOLLOW;
+        animator.enabled = false;
+        CommandProcessor.SendCommand("PlayerController.Unblock");
+        CommandProcessor.SendCommand("Fade.out");
     }
 }
