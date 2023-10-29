@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 6486575319033411702}
   - component: {fileID: 81787084334088413}
   - component: {fileID: 5835957889624046404}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11851,7 +11851,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossDatas:
   - ghostPoint: {fileID: 2857070966566899506}
-    bossPrefab: {fileID: 9178148596377676956, guid: 8ae2c42e7e1b5a14ab4365f08d88c57e,
+    bossPrefab: {fileID: 7694594038407322504, guid: 8ae2c42e7e1b5a14ab4365f08d88c57e,
       type: 3}
     isKilled: 0
 --- !u!1 &8430810435224375457
