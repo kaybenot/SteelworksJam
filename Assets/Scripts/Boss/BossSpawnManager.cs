@@ -47,6 +47,7 @@ public class BossSpawnManager : MonoBehaviour
             currentBossData.isKilled = true;
             currentBoss = null;
             currentBossData = null;
+            CommandProcessor.SendCommand("LastBoss.Restart");
         }
     }
     public void SummonRemainingGhosts()

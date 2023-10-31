@@ -48,6 +48,7 @@ public class Boss : MonoBehaviour, IDamagable
         bossInteraction.gameObject.SetActive(false);
         baseSprite = spriteRenderer.sprite;
         currentHealth = startingHealth;
+        CommandProcessor.SendCommand($"Canvas.SetEnemyHealth", $"{(float)((float)currentHealth / (float)startingHealth)}");
         shotManager.Init(Attack);
         foreach (var action in specialActions)
         {

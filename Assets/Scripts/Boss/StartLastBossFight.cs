@@ -28,6 +28,9 @@ public class StartLastBossFight : MonoBehaviour, ICommandListener
         else if (command == "End")
         {
             EndLastFight();
+        }else if(command == "Restart")
+        {
+            RestartLassBoss();
         }
     }
 
@@ -48,5 +51,9 @@ public class StartLastBossFight : MonoBehaviour, ICommandListener
         music.Stop();
         bossSpawnManager.DespawnBoss();
         SceneManager.LoadScene(3);
+    }
+    private void RestartLassBoss()
+    {
+        music.Stop();
     }
 }

@@ -8,4 +8,5 @@ public class BossData
     public BossGhost ghostPoint;
     public Boss bossPrefab;
     public bool isKilled = false;
+    public string bossName = "";
 }
