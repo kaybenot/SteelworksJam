@@ -38,6 +38,7 @@ public class BossSpawnManager : MonoBehaviour
         Destroy(currentBoss.gameObject);
         currentBoss = null;
         currentBossData = null;
+        CommandProcessor.SendCommand("LastBoss Restart");
     }
 
     public void DespawnBoss()
@@ -47,8 +48,8 @@ public class BossSpawnManager : MonoBehaviour
             currentBossData.isKilled = true;
             currentBoss = null;
             currentBossData = null;
-            CommandProcessor.SendCommand("LastBoss Restart");
         }
+        CommandProcessor.SendCommand("LastBoss Restart");
     }
     public void SummonRemainingGhosts()
     {

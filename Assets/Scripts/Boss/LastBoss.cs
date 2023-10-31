@@ -25,6 +25,7 @@ public class LastBoss : Boss
         currentIndex = 0;
         nextSwitch = timeToSwitch;
         SwitchBoss(otherBosses[currentIndex]);
+        CommandProcessor.SendCommand($"Canvas SetEnemyHealth {(float)((float)currentHealth / (float)startingHealth)}");
     }
 
     public void Update()

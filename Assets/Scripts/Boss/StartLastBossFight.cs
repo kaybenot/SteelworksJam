@@ -44,6 +44,7 @@ public class StartLastBossFight : MonoBehaviour, ICommandListener
         CommandProcessor.SendCommand("Canvas ShowWeapons");
         CommandProcessor.SendCommand("Canvas ShowEnemyHealth");
         CommandProcessor.SendCommand("Canvas ShowPlayerHealth");
+        CommandProcessor.SendCommand($"Canvas SetEnemyName {bossSpawnManager.bossDatas[0].bossName}");
     }
 
     private void EndLastFight()

@@ -41,6 +41,7 @@ public class BossState : MonoBehaviour, ICommandListener
             {
                 bossSpawnManager.RealDespawnBoss();
                 lastBossSpawnManager.RealDespawnBoss();
+                music.Stop();
                 if (currentBossIndex != -1) bossSpawnManager.bossDatas[currentBossIndex].ghostPoint.gameObject.SetActive(true);
             }
             
