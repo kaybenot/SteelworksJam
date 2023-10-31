@@ -12,18 +12,13 @@ public class DebuffManager : MonoBehaviour
     public int killCount = 0;
 private void Awake()
     {
+        debuffList = new() { 0, 1, 2, 3 };
         killCount = 0;
 
         if (instance == null)
         {
             instance = this;
         }
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
-        DontDestroyOnLoad(gameObject);
 
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         if (player == null)
