@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour, ICommandListener
     public void Pause(InputAction.CallbackContext context)
     {
         if (context.started)
-            CommandProcessor.SendCommand("Canvas.Pause");
+            CommandProcessor.SendCommand("Canvas Pause");
     }
 
     public void ProcessCommand(string command, List<string> parameters)

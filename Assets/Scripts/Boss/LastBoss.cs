@@ -73,7 +73,7 @@ public class LastBoss : Boss
         spriteRenderer.sprite = deadSprite;
         bossInteraction.gameObject.SetActive(true);
         isKilled = true;
-        CommandProcessor.SendCommand("LastBoss.End");
+        CommandProcessor.SendCommand("LastBoss End");
     }
 
     [Serializable]

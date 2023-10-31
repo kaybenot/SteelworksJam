@@ -27,14 +27,14 @@ public class BossState : MonoBehaviour, ICommandListener
         {
             if (command == "End")
                 EndFight();
-            CommandProcessor.SendCommand("Player.DisableGun");
-            CommandProcessor.SendCommand("Canvas.HideWeapons");
-            CommandProcessor.SendCommand("Canvas.HideEnemyHealth");
-            CommandProcessor.SendCommand("Canvas.HidePlayerHealth");
+            CommandProcessor.SendCommand("Player DisableGun");
+            CommandProcessor.SendCommand("Canvas HideWeapons");
+            CommandProcessor.SendCommand("Canvas HideEnemyHealth");
+            CommandProcessor.SendCommand("Canvas HidePlayerHealth");
             music.Stop();
             if (currentBossIndex != -1)
             {
-                CommandProcessor.SendCommand($"ArenaManager.Hide {currentBossIndex}");
+                CommandProcessor.SendCommand($"ArenaManager Hide {currentBossIndex}");
             }
 
             if (command == "Restart")
@@ -51,16 +51,18 @@ public class BossState : MonoBehaviour, ICommandListener
             Debug.Log($"Spawned boss with index {index}");
             music.Play();
             bossSpawnManager.SpawnBoss(index);
-            CommandProcessor.SendCommand("Player.EnableGun");
-            CommandProcessor.SendCommand("Canvas.ShowWeapons");
+            CommandProcessor.SendCommand("Player EnableGun");
+            CommandProcessor.SendCommand("Canvas ShowWeapons");
             bossAI.SetActive(false);
             if (parameters.Count > 0)
-                CommandProcessor.SendCommand($"Player.PushPlayer {parameters[0]}");
+                CommandProcessor.SendCommand($"Player PushPlayer {parameters[0]}");
             else
-                CommandProcessor.SendCommand("Player.PushPlayer");
-            CommandProcessor.SendCommand("Canvas.ShowEnemyHealth");
-            CommandProcessor.SendCommand("Canvas.ShowPlayerHealth");
-            CommandProcessor.SendCommand($"ArenaManager.Show {index}");
+                CommandProcessor.SendCommand("Player PushPlayer");
+
+            CommandProcessor.SendCommand("Canvas ShowEnemyHealth");
+            CommandProcessor.SendCommand("Canvas ShowPlayerHealth");
+            CommandProcessor.SendCommand($"Canvas SetEnemyName {bossSpawnManager.bossDatas[index].bossName}");
+            CommandProcessor.SendCommand($"ArenaManager Show {index}");
             currentBossIndex = index;
         }
     }

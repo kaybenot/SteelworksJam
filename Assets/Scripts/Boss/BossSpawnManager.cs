@@ -47,7 +47,7 @@ public class BossSpawnManager : MonoBehaviour
             currentBossData.isKilled = true;
             currentBoss = null;
             currentBossData = null;
-            CommandProcessor.SendCommand("LastBoss.Restart");
+            CommandProcessor.SendCommand("LastBoss Restart");
         }
     }
     public void SummonRemainingGhosts()
@@ -76,7 +76,7 @@ public class BossSpawnManager : MonoBehaviour
             //        bossDatas[i].ghostPoint.gameObject.SetActive(false);
             //    }
             //}
-            CommandProcessor.SendCommand("Dialog.Next");
+            CommandProcessor.SendCommand("Dialog Next");
         }
     }
 }

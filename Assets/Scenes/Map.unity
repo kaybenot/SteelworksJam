@@ -1450,6 +1450,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2941b10288f79ee48b0b08e3090ba5db, type: 3}
+--- !u!114 &1247333871 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2376344066124415099, guid: dd06d83b4b5bf2f4bb0a256b60585704,
+    type: 3}
+  m_PrefabInstance: {fileID: 1699525474}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1376545494 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 924435640156696867, guid: 369ba38862a87ee4b8aad21c8eebfab4,
@@ -1930,6 +1942,21 @@ PrefabInstance:
       propertyPath: Loop
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7760912920927806405, guid: 0e6b5266327a6cd42acf4d5ea722e8f8,
+        type: 3}
+      propertyPath: bossDatas.Array.data[0].bossName
+      value: Arrogance
+      objectReference: {fileID: 0}
+    - target: {fileID: 7760912920927806405, guid: 0e6b5266327a6cd42acf4d5ea722e8f8,
+        type: 3}
+      propertyPath: bossDatas.Array.data[1].bossName
+      value: Heartlessness
+      objectReference: {fileID: 0}
+    - target: {fileID: 7760912920927806405, guid: 0e6b5266327a6cd42acf4d5ea722e8f8,
+        type: 3}
+      propertyPath: bossDatas.Array.data[2].bossName
+      value: Greed
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1955,6 +1982,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 582176578059169969, guid: dd06d83b4b5bf2f4bb0a256b60585704,
+        type: 3}
+      propertyPath: bossName
+      value: 
+      objectReference: {fileID: 1247333871}
+    - target: {fileID: 1965305734817903597, guid: dd06d83b4b5bf2f4bb0a256b60585704,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3346665486728800799, guid: dd06d83b4b5bf2f4bb0a256b60585704,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1993,6 +2030,11 @@ PrefabInstance:
     - target: {fileID: 3936480392494519501, guid: dd06d83b4b5bf2f4bb0a256b60585704,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655643600532425146, guid: dd06d83b4b5bf2f4bb0a256b60585704,
+        type: 3}
+      propertyPath: m_Alpha
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5998408062054038749, guid: dd06d83b4b5bf2f4bb0a256b60585704,
@@ -2199,6 +2241,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8706095577500743756, guid: dd06d83b4b5bf2f4bb0a256b60585704,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -1045.194
+      objectReference: {fileID: 0}
+    - target: {fileID: 8706095577500743756, guid: dd06d83b4b5bf2f4bb0a256b60585704,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 23.463
       objectReference: {fileID: 0}
     - target: {fileID: 9049508021076817681, guid: dd06d83b4b5bf2f4bb0a256b60585704,
         type: 3}

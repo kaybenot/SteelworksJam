@@ -70,6 +70,6 @@ private void Awake()
     private void SetUiObstacles()
     {
         Debug.Log("UiObstacle");
-        CommandProcessor.SendCommand("Canvas.ShowBadSight");
+        CommandProcessor.SendCommand("Canvas ShowBadSight");
     }
 }

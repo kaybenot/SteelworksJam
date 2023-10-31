@@ -11,7 +11,7 @@ public class FirePlaceAnim : MonoBehaviour
     }
     public void TurnOff()
     {
-        CommandProcessor.SendCommand("Fade.in");
+        CommandProcessor.SendCommand("Fade in");
         gameObject.SetActive(false);
     }
 }

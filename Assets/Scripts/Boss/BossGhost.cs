@@ -27,7 +27,7 @@ public class BossGhost : MonoBehaviour, IInteractable
 
     public void Use(Player player)
     {
-        CommandProcessor.SendCommand($"Boss.{bossGhostIndex}");
+        CommandProcessor.SendCommand($"Boss {bossGhostIndex}");
         gameObject.SetActive(false);
     }
 

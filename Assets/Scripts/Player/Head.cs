@@ -27,7 +27,7 @@ public class HeadFollow : MonoBehaviour, ICommandListener
 
     private void Awake()
     {
-        CommandProcessor.SendCommand("PlayerController.Block");
+        CommandProcessor.SendCommand("PlayerController Block");
         CommandProcessor.RegisterListener(this);
         animator = GetComponent<Animator>();
     }
@@ -73,8 +73,8 @@ public class HeadFollow : MonoBehaviour, ICommandListener
         {
             case "Hide":
                 mode = MODE.HIDE;
-                hidePosition = StringUtils.Vec3FromString(parameters[0]);
-                hideRotation = Quaternion.Euler(StringUtils.Vec3FromString(parameters[1]));
+                hidePosition = new Vector3(float.Parse(parameters[0]), float.Parse(parameters[1]), float.Parse(parameters[2]));
+                hideRotation = Quaternion.Euler(new Vector3(float.Parse(parameters[3]), float.Parse(parameters[4]), float.Parse(parameters[5])));
                 break;
             case "Follow":
                 mode = MODE.FOLLOW;
@@ -91,8 +91,8 @@ public class HeadFollow : MonoBehaviour, ICommandListener
     {
         mode = MODE.FOLLOW;
         animator.enabled = false;
-        CommandProcessor.SendCommand("PlayerController.Unblock");
-        CommandProcessor.SendCommand("Fade.out");
+        CommandProcessor.SendCommand("PlayerController Unblock");
+        CommandProcessor.SendCommand("Fade out");
     }
 
     public void Teleport(Transform point)

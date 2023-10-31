@@ -21,12 +21,13 @@ public static class CommandProcessor
 
     public static bool SendCommand(string command)
     {
-        var split1 = command.Split('.');
+        var split1 = command.Split(' ');
         var listenerName = split1[0];
-        var paramString = split1[1];
-        var parameters = paramString.Split(' ').ToList();
-        var cmd = parameters[0];
-        parameters.RemoveRange(0, 1);
+        var cmd = split1[1];
+        //var parameters = paramString.Split(' ').ToList();
+        //var cmd = parameters[0];
+        var parameters = split1.Skip(2).ToList();
+        //parameters.RemoveRange(0, 1);
 
         foreach (var listener in listeners)
         {
@@ -38,26 +39,6 @@ public static class CommandProcessor
         }
 
         Debug.LogWarning($"{listenerName} is not a registered listener!");
-        return false;
-    }
-
-    public static bool SendCommand(string command, string parameters)
-    {
-        var split1 = command.Split('.');
-        var listenerName = split1[0];
-        var listenerCommand = split1[1];
-
-        var parameterList = parameters.Split(";").ToList();
-
-        foreach (var listener in listeners)
-        {
-            if (listener.Key == listenerName)
-            {
-                listener.Value.ProcessCommand(listenerCommand, parameterList);
-                return true;
-            }
-        }
-
         return false;
     }
 }

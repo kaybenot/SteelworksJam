@@ -108,11 +108,11 @@ public class Player : MonoBehaviour, IDamagable, ICommandListener
         if (Physics.Raycast(Head.transform.position, Head.transform.forward, out hit, maxInteractDistance, mask))
         {
             // Show Hint
-            CommandProcessor.SendCommand("Canvas.ShowHint");
+            CommandProcessor.SendCommand("Canvas ShowHint");
         }
         else
         {
-            CommandProcessor.SendCommand("Canvas.HideHint");
+            CommandProcessor.SendCommand("Canvas HideHint");
         }
     }
 
@@ -222,11 +222,11 @@ public class Player : MonoBehaviour, IDamagable, ICommandListener
             currentImmunityTime = Time.time + immunityTime;
 
             currentHealth -= damage;
-            CommandProcessor.SendCommand($"Canvas.SetPlayerHearts {currentHealth}");
-            CommandProcessor.SendCommand($"Canvas.PulseBlood");
+            CommandProcessor.SendCommand($"Canvas SetPlayerHearts {currentHealth}");
+            CommandProcessor.SendCommand($"Canvas PulseBlood");
             if (currentHealth <= 0)
             {
-                CommandProcessor.SendCommand($"Canvas.SetPlayerHearts 0");
+                CommandProcessor.SendCommand($"Canvas SetPlayerHearts 0");
 
                 OnDeath();
             }
@@ -247,17 +247,17 @@ public class Player : MonoBehaviour, IDamagable, ICommandListener
         //CommandProcessor.SendCommand("Canvas.GameOver");
 
         StartCoroutine(Respawn());
-        CommandProcessor.SendCommand("Boss.Restart");
+        CommandProcessor.SendCommand("Boss Restart");
     }
 
     private IEnumerator Respawn()
     {
-        CommandProcessor.SendCommand("Fade.out");
+        CommandProcessor.SendCommand("Fade out");
         currentHealth = StartingHealth;
-        CommandProcessor.SendCommand($"Canvas.SetPlayerHearts {currentHealth}");
+        CommandProcessor.SendCommand($"Canvas SetPlayerHearts {currentHealth}");
         yield return new WaitForSeconds(1.5f);
         Teleport(GameObject.FindGameObjectWithTag("Respawn").transform.position);
-        CommandProcessor.SendCommand("Fade.in");
+        CommandProcessor.SendCommand("Fade in");
     }
 
     public IEnumerator BlockMovementForTime(float time)

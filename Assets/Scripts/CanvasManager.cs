@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,6 +18,7 @@ public class CanvasManager : MonoBehaviour, ICommandListener
     public Animator weaponShootingAnimator;
     public Animator pauseAnimator;
 
+    public TextMeshProUGUI bossName;
     public Image enemyHealthBarFill;
     public GameObject playerHeartsParent;
 
@@ -35,6 +37,7 @@ public class CanvasManager : MonoBehaviour, ICommandListener
             case "ShowEnemyHealth": enemyHealthAnimator.SetTrigger("Show"); break;
             case "HideEnemyHealth": enemyHealthAnimator.SetTrigger("Hide"); break;
             case "SetEnemyHealth": { enemyHealthBarFill.fillAmount = float.Parse(parameters[0]); break; }
+            case "SetEnemyName": { bossName.text = parameters[0] ;break; }
 
             case "ShowPlayerHealth": playerHealthAnimator.SetTrigger("Show"); break;
             case "HidePlayerHealth": playerHealthAnimator.SetTrigger("Hide"); break;
@@ -60,7 +63,7 @@ public class CanvasManager : MonoBehaviour, ICommandListener
 
             case "Pause": {
                     pauseAnimator.SetTrigger("Pause");
-                    CommandProcessor.SendCommand("PlayerController.Block");
+                    CommandProcessor.SendCommand("PlayerController Block");
                     CursorManager.ShowCursor();
                     Time.timeScale = 0.0f;
                     break; 
@@ -68,7 +71,7 @@ public class CanvasManager : MonoBehaviour, ICommandListener
             case "Unpause":
                 {
                     pauseAnimator.SetTrigger("Unpause");
-                    CommandProcessor.SendCommand("PlayerController.Unblock");
+                    CommandProcessor.SendCommand("PlayerController Unblock");
                     CursorManager.HideCursor();
                     Time.timeScale = 1.0f;
                     break;

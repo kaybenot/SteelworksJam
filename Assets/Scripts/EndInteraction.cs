@@ -6,6 +6,6 @@ public class EndInteraction : MonoBehaviour, IInteractable
 {
     public void Use(Player player)
     {
-        CommandProcessor.SendCommand("LastBoss.Start");
+        CommandProcessor.SendCommand("LastBoss Start");
     }
 }

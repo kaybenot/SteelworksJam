@@ -40,10 +40,10 @@ public class StartLastBossFight : MonoBehaviour, ICommandListener
         headManager.Teleport(playerSpawnPoint);
 
         bossSpawnManager.SpawnBoss(0);
-        CommandProcessor.SendCommand("Player.EnableGun");
-        CommandProcessor.SendCommand("Canvas.ShowWeapons");
-        CommandProcessor.SendCommand("Canvas.ShowEnemyHealth");
-        CommandProcessor.SendCommand("Canvas.ShowPlayerHealth");
+        CommandProcessor.SendCommand("Player EnableGun");
+        CommandProcessor.SendCommand("Canvas ShowWeapons");
+        CommandProcessor.SendCommand("Canvas ShowEnemyHealth");
+        CommandProcessor.SendCommand("Canvas ShowPlayerHealth");
     }
 
     private void EndLastFight()

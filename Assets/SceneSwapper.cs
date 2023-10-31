@@ -13,6 +13,6 @@ public class SceneSwapper : MonoBehaviour
 
     public void Unpause()
     {
-        CommandProcessor.SendCommand("Canvas.Unpause");
+        CommandProcessor.SendCommand("Canvas Unpause");
     }
 }

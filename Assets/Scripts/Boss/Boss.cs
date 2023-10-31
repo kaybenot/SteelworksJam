@@ -48,7 +48,7 @@ public class Boss : MonoBehaviour, IDamagable
         bossInteraction.gameObject.SetActive(false);
         baseSprite = spriteRenderer.sprite;
         currentHealth = startingHealth;
-        CommandProcessor.SendCommand($"Canvas.SetEnemyHealth", $"{(float)((float)currentHealth / (float)startingHealth)}");
+        CommandProcessor.SendCommand($"Canvas SetEnemyHealth {(float)((float)currentHealth / (float)startingHealth)}");
         shotManager.Init(Attack);
         foreach (var action in specialActions)
         {
@@ -81,10 +81,10 @@ public class Boss : MonoBehaviour, IDamagable
     {
         currentHealth -= damage;
         damageParticles.Play();
-        CommandProcessor.SendCommand($"Canvas.SetEnemyHealth", $"{(float)((float)currentHealth / (float)startingHealth)}");
+        CommandProcessor.SendCommand($"Canvas SetEnemyHealth {(float)((float)currentHealth / (float)startingHealth)}");
         if (currentHealth <= 0)
         {
-            CommandProcessor.SendCommand("Canvas.SetEnemyHealth 0");
+            CommandProcessor.SendCommand("Canvas SetEnemyHealth 0");
             OnDeath();
         }
     }
@@ -111,6 +111,6 @@ public class Boss : MonoBehaviour, IDamagable
         spriteRenderer.sprite = deadSprite;
         bossInteraction.gameObject.SetActive(true);
         isKilled = true;
-        CommandProcessor.SendCommand("Boss.End");
+        CommandProcessor.SendCommand("Boss End");
     }
 }
